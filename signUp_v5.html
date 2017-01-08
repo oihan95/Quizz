@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Quizzes - Sign Up</title>
+    	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+    	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
+    	<script type="text/javascript">
+	    	function ikusBalioak(){
+	    		var sAux="";
+	    		var frm=document.getElementById("erregistro");
+    			for(i=0;i<frm.elements.length-1;i++){
+    				sAux +="IZENA: " + frm.elements[i].name+"";
+    				sAux +=" BALIOA: " + frm.elements[i].value+"\n";
+    			}
+    			alert(sAux);
+	    	}
+
+	    	var irudiaikusi = function(event) {
+	    		var reader = new FileReader();
+	    		reader.onload = function(){
+	    			var irudia = document.getElementById('irudia');
+	    			irudia.src = reader.result;
+	    		};
+	    		reader.readAsDataURL(event.target.files[0]);
+	    	};
+
+			function bistaratu(elem){
+				if (elem.value == "OT"){
+					document.getElementById('specialityOther').style.visibility = "visible";
+				}else{
+					document.getElementById('specialityOther').style.visibility = "hidden";
+				}
+			}
+    	</script>
+  	</head>
+  	<body>
+	  	<div class = "header">
+			<div id="logo">Quiz: crazy questions</div>
+				<div class="navbar">
+					<a href="layout.html">Home</a>
+					<a href='/quizzes'>Quizzes</a>
+					<a href="signup.html">Sign Up</a>
+					<a href="credits.html">Credits</a>
+				</div>
+		</div>
+		<div class="wrapper">
+			<h2>Insert your data</h2>
+			<br>
+			<form name = "erregistro" id="erregistro" action="#" onSubmit = "ikusBalioak()" method="post" class="elegant-aero">
+				<p>Izena (*):</p>
+				<p><input class="input" type="text" name="name" id="izena" value="" required/></p>
+				<p>Lehenengo abizena (*):</p>
+				<p><input class="input" type="text" name="abi1" id="abi1" value="" required /></p>
+				<p>Bigarren abizena (*):</p>
+				<p><input class="input" type="text" name="abi2" id="abi2" value="" required /></p>
+				<p>E-posta (*):</p>
+				<p><input class="input" type="text" name="mail" id="posta" value="" required pattern="[a-z]+[0-9]{3}@ikasle.ehu.[eus|es]" /></p>
+				<p>Pasahitza (*):
+				<p><input class="input" type="password" name="pass" id="pasahitza" value="" required pattern="[0-9a-zA-Z]{6,}"/></p>
+				<p>Telefono zenbakia (*):</p>
+				<p><input class="input" type="text" name="telf" id="telf" value="" required pattern="[0-9]{9}"/></p>
+				<p>Espezialitatea (*):</p>
+				<div class="select-style">
+					<select id="speciality" name="spe" onchange="bistaratu(this)">
+	  					<option value="SE">Software Ingenieritza</option>
+						<option value="Computation">Konputazioa</option>
+						<option value="CE">Konputagailuen Ingenieritza</option>
+						<option value="OT">Besterik</option>
+					</select>
+				</div>
+				<br>
+				<p><input class="input" type="text" name="specialityOther" id="specialityOther" style="visibility: hidden;"></p>
+				<p>Interesa duzun teknologiak eta erremintak: </p>
+				<p><textarea class="textarea" cols="40" rows="5" id="interests" name="interests"></textarea></p>
+				<p><input type="file" name="irudia" id="igoirudi" onchange="irudiaikusi(event)"></p>
+				<br>
+				<img id="irudia" width="350" alt="">
+				<br>
+				<p><button class="button" type="submit">Bidali</button></p>
+			</form>
+		</div>
+	</body>
+</html>

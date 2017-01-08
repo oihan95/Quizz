@@ -1,0 +1,44 @@
+.flip-container {
+	perspective: 1000px;
+}
+	
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+}
+
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+}
+
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.back {
+	transform: rotateY(180deg);
+	width: 400px;
+	height: 400px;
+}
+
+.grad {
+  background: #0000FF;
+  background: -webkit-linear-gradient(#0000FF, #ff0000);
+  background: -o-linear-gradient(#0000FF, #ff0000);
+  background: -moz-linear-gradient(#0000FF, #ff0000);
+  background: linear-gradient(#0000FF, #ff0000);
+}

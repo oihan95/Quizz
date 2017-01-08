@@ -1,0 +1,76 @@
+.elegant-aero {
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 350px;
+    background: #6495ED;
+    padding: 20px 20px 20px 20px;
+    font: 12px Monaco, monospace;
+    color: #000000;
+    border-radius: 4px;
+}
+
+.input[type="text"], .input[type="password"], .textarea{
+    width: 70%;
+    padding: 0px 0px 0px 5px;
+    border: 1px solid #C5E2FF;
+    background: #FBFBFB;
+    outline: 0;
+    -webkit-box-shadow:inset 0px 1px 6px #ECF3F5;
+    box-shadow: inset 0px 1px 6px #ECF3F5;
+    font: 200 12px/25px Monaco, monospace;
+    height: 30px;
+    line-height:15px;
+    margin: 2px 6px 16px 0px;
+}
+
+.textarea{
+    height:100px;
+    padding: 5px 0px 0px 5px;
+    width: 70%;
+}
+
+.button{
+    margin-top: 10px;
+    padding: 10px 30px 10px 30px;
+    background: #000000;
+    border: none;
+    color: #FFF;
+    border-radius: 4px;
+    font-family: Monaco, monospace;
+    box-shadow: 1px 1px 1px #FFF;
+    -webkit-box-shadow: 1px 1px 1px #4C6E91;
+    -moz-box-shadow: 1px 1px 1px #4C6E91;
+    
+}
+.button:hover{
+    background: #E20800;
+}
+
+.select-style {
+    padding: 0px 50px 0px 20px;
+    margin-left:auto;
+    margin-right:auto;
+    border: 2px solid #ccc;
+    width: 120px;
+    font-family: Monaco, monospace;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 6px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Quizzes - Sign Up</title>
+    	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+    	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
+    	<script type="text/javascript" src="form.js"></script>
+  	</head>
+  	<body>
+	  	<div class = "header">
+			<div id="logo">Quiz: crazy questions</div>
+				<div class="navbar">
+					<a href="layout.html">Home</a>
+					<a href='#'>Quizzes</a>
+					<a href="signup.html">Sign Up</a>
+					<a href="signin.html">Sign In</a>
+					<a href="credits.html">Credits</a>
+				</div>
+		</div>
+		<div class="wrapper">
+			<h2>Insert your data</h2>
+			<br>
+			<form enctype="multipart/form-data" name = "erregistro" id="erregistro" action="EnrollWithImage.php" onSubmit = "return ikusBalioak()" method="post" class="elegant-aero">
+				<p>Izena (*):</p>
+				<p><input class="input" type="text" name="name" id="izena" value=""/></p>
+				<p>Lehenengo abizena (*):</p>
+				<p><input class="input" type="text" name="abi1" id="abi1" value=""/></p>
+				<p>Bigarren abizena (*):</p>
+				<p><input class="input" type="text" name="abi2" id="abi2" value=""/></p>
+				<p>E-posta (*):</p>
+				<p><input class="input" type="text" name="mail" id="posta" value=""/></p>
+				<p>Pasahitza (*):
+				<p><input class="input" type="password" name="pass" id="pasahitza" value=""/></p>
+				<p>Telefono zenbakia (*):</p>
+				<p><input class="input" type="text" name="telf" id="telf" value=""/></p>
+				<p>Espezialitatea (*):</p>
+				<div class="select-style">
+					<select id="speciality" name="spe" onchange="bistaratu(this)">
+	  					<option value="SE">Software Ingenieritza</option>
+						<option value="Computation">Konputazioa</option>
+						<option value="CE">Konputagailuen Ingenieritza</option>
+						<option value="OT">Besterik</option>
+					</select>
+				</div>
+				<br>
+				<p><input class="input" type="text" name="specialityOther" id="specialityOther" style="visibility: hidden;"></p>
+				<p>Interesa duzun teknologiak eta erremintak: </p>
+				<p><textarea class="textarea" cols="40" rows="5" id="interests" name="interests"></textarea></p>
+				<p><input type="file" name="irudia_ona" id="igoirudi" accept="image/*" onchange="irudiaikusi(event)"></p>
+				<br>
+				<img id="irudia" width="350" alt="">
+				<br>
+				<p><button class="button" type="submit">Bidali</button></p>
+			</form>
+		</div>
+	</body>
+</html>
