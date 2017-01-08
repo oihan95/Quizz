@@ -1,0 +1,26 @@
+.table {
+	display: table;
+ 	width: 100%; 
+ 	background: #fff;
+ 	margin: 0;
+ 	box-sizing: border-box;
+}
+
+.header-row {
+ 	background: #6495ED;
+ 	color: #fff;
+}
+
+.row {
+	display: table-row;
+}
+
+.cell {
+	display: table-cell;
+	padding: 6px; 
+	border-bottom: 1px solid #e5e5e5;
+	text-align: center;
+	color: #000000;
+	vertical-align: middle;
+	font-size: 13px;
+}
