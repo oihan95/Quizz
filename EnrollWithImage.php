@@ -4,7 +4,7 @@
 $esteka = mysqli_connect("localhost", "root",  "", "Quiz");
 
 $irudi_izena = $_FILES['irudia_ona']['name'];
-$dir_image = '/Applications/XAMPP/xamppfiles/htdocs/wsoihan16_2/img/irudiak/';
+$dir_image = '/Applications/XAMPP/xamppfiles/htdocs/Quizz/img/irudiak/';
 move_uploaded_file($_FILES['irudia_ona']['tmp_name'],$dir_image.$irudi_izena);
 
 if (!$esteka)
