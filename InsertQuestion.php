@@ -72,7 +72,22 @@
 		$n = $row['n'];
 		$n++;
 
-		
+		$galdera = $_POST['question'];
+		$erantzuna = $_POST['answer'];
+		$level = $_POST['level'];
+
+		if (!empty($level)) {
+			$sql = "INSERT INTO Galderak VALUES ('$n','$email','$galdera','$erantzuna','$level')";
+		}else{
+			$sql = "INSERT INTO Galderak VALUES ('$n','$email','$galdera','$erantzuna','NULL')";
+		}
+
+		$ema = mysqli_query($esteka,$sql);
+		mysqli_close($esteka);
+
+		if (!$ema){
+			die('Errorea query-a gauzatzerakoan: '.msqli_error());
+		}
 	}
 ?>
 
