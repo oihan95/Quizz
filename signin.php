@@ -16,6 +16,12 @@ $ema = mysqli_query($esteka,$sql);
 if (!($ema -> num_rows == 0)) {
 	session_start(); 
 	$_SESSION['email']=$_POST['mail'];
+	
+	$sql1="SELECT MAX(Zenbakia) AS zenbakia FROM Konexioak";
+	$em = mysqli_query($link,$sql1);	
+	$zenb =mysqli_fetch_array( $em );
+	$zenbaki= $zenb["zenbakia"];
+	++$zenbaki;
 	header('Location: InsertQuestion.php');
 }else{
 	mysqli_close($esteka);

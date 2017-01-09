@@ -83,11 +83,30 @@
 		}
 
 		$ema = mysqli_query($esteka,$sql);
-		mysqli_close($esteka);
 
 		if (!$ema){
 			die('Errorea query-a gauzatzerakoan: '.msqli_error());
 		}
+
+		$zenbKonex = "SELECT MAX(ID) as konexn FROM Konexioak";
+		$emaitzaKonex = mysqli_query($esteka,$zenbKonex);
+		$rowKonex = mysqli_fetch_assoc($emaitzaKonex);
+		$nKonex = $rowKonex['konexn'];
+		$nKonex++;
+
+		$data = date('YYYY-MM-DD HH:MM:SS', time());
+		$ipaddress = '';
+		$konex=$_SESSION['Konexioa'];
+
+		$ekintza = "INSERT INTO Ekintzak VALUES ('$nKonex','$konex','$email','Galdera Txertatu','$data','$ipaddress' )";
+
+		$emaitzaEkintza = mysqli_query($esteka,$ekintza);
+
+		if (!$emaitzaEkintza){ 
+			die('Errorea query-a gauzatzerakoan: ' .mysqli_error($link));
+		}
+
+		mysqli_close($esteka);
 	}
 ?>
 
