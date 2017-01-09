@@ -35,11 +35,11 @@
 					echo('<span class="cell">Konplexutasuna</span>');
 					echo('<span class="cell">Gaia</span>');
 					echo('</div>');
-					foreach($fitxategia->galdera as $galdera) {
+					foreach($fitxategia->assessmentItem as $galdera) {
 						echo('<div class="row">');
-					    echo('<span class="cell">'.$kanta->artista.'</span>');
-					    echo('<span class="cell">'.$kanta->album.'</span>');
-		    			echo('<span class="cell">'.$kanta->generoa.'</span>');
+					    echo('<span class="cell">'.$galdera->itemBody.'</span>');
+					    echo('<span class="cell">'.$kanta['complexity'].'</span>');
+		    			echo('<span class="cell">'.$kanta['subject'].'</span>');
 		    			echo('</div>');
 					}
 					echo('</div>');
