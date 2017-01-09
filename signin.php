@@ -39,7 +39,7 @@ if (!($ema -> num_rows == 0)) {
 				<div id="logo">Quiz: crazy questions</div>
 					<div class="navbar">
 						<a href="layout.html">Home</a>
-						<a href='#'>Quizzes</a>
+						<a href='quizzes.php'>Quizzes</a>
 						<a href="signup.html">Sign Up</a>
 						<a href="signin.html">Sign In</a>
 						<a href="credits.html">Credits</a>
