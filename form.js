@@ -101,8 +101,5 @@ function balidatulogin(){
 		alert("Pasahitza ezin da hutsik egon");
 		return false;
 	}
-}
-
-function balidatuinsertquestion(){
-	
+	return true;
 }
