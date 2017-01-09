@@ -19,9 +19,16 @@ body{
 .wrapper{
 	width:90%; 
 	max-width:1000px; 
-	margin: 90px auto 0px; 
-	text-align: center;
+	margin: 0px auto; 
 	overflow:hidden;
+}
+
+.center{
+	text-align: center;
+}
+
+.jump{
+	margin-top: 90px;
 }
 
 #logo{

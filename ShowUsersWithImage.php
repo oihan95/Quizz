@@ -26,7 +26,7 @@ $ema = mysqli_query($esteka, "select * from Erabiltzaile");
 					<a href="credits.html">Credits</a>
 				</div>
 		</div>
-		<div class="wrapper">
+		<div class="wrapper jump center">
 
 			<?php
 				echo('<div class="table">');

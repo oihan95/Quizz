@@ -2,7 +2,8 @@
 
 	session_start();
 	if (!isset($_SESSION['email'])) {
-		die('Ez duzu sartzeko baimenik  http://txak.hol.es/php/SignIn.php');
+		header('Location: layout.html');
+		exit();
 	}else{
 		?>
 		<!DOCTYPE html>
@@ -12,6 +13,7 @@
 				<title>Quizzes - Gehitu galdera</title>
 		    	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
 		    	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
+		    	<link rel="stylesheet" type="text/css" href="stylesPWS/colours.css">
 		  	</head>
 		  	<body>
 			  	<div class = "header">
@@ -25,7 +27,18 @@
 							<a href="logout.php">Log out</a>
 						</div>
 				</div>
-				<div class="wrapper">
+				<div class="wrapper jump">
+				<?php
+				$email=$_SESSION['email'];
+				$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
+				$sql = "SELECT Izena FROM Erabiltzaile WHERE Eposta = '$email'";
+				$ema = mysqli_query($esteka,$sql);
+				$row = mysqli_fetch_assoc($ema);
+				echo "<span>Kaixo </span><span class="."red".">".$row['Izena'].":"."</span>"
+				?>
+					
+				</div>
+				<div class="wrapper center">
 				<form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" action="InsertQuestion.php" method="post" class="elegant-aero">
 						<p>Egilearen eposta:</p>
 						<p><input class="input" type="text" name="mail" id="posta" value=""/></p>
