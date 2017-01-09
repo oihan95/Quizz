@@ -95,7 +95,15 @@ if (!empty($_POST['question']) && !empty($_POST['answer'])){
 
 		//XML atala
 
-		
+		$xml = simplexml_load_file('galderak.xml');
+		$assessmentItem = $xml->addChild('assessmentItem');
+		$assessmentItem->addAttribute('complexity', $zailtasuna);
+		$assessmentItem->addAttribute('subject', '');
+		$itemBody = $assessmentItem->addChild('itemBody');
+		$itemBody->addChild('p',$galdera);
+		$correctResponse = $assessmentItem->addChild('correctResponse');
+		$correctResponse->addChild('value', $erantzuna);
+		$errorea = $xml->asXML('galderak.xml');
 
 		//Ekintza gorde
 
