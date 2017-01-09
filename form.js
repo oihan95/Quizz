@@ -102,3 +102,7 @@ function balidatulogin(){
 		return false;
 	}
 }
+
+function balidatuinsertquestion(){
+	
+}

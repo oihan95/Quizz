@@ -40,7 +40,7 @@
 					
 				</div>
 				<div class="wrapper center">
-				<form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" action="InsertQuestion.php" method="post" class="elegant-aero">
+				<form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" onsubmit="return balidatuinsertquestion()" action="InsertQuestion.php" method="post" class="elegant-aero">
 						<p>Galderaren testua: </p>
 						<p><textarea class="textarea" cols="40" rows="5" id="galdera" name="question"></textarea></p>
 						<p>Galderaren erantzun zuzena: </p>
@@ -104,9 +104,14 @@
 
 		if (!$emaitzaEkintza){ 
 			die('Errorea query-a gauzatzerakoan: ' .mysqli_error($link));
+		}else{
+			mysqli_close($esteka);
+			echo('<script type="text/javascript">');
+			echo('window.onload = function(){');
+			echo('alert("Eskerrik asko galdera gehitzeagatik");');
+			echo('}');
+			echo('</script>');
 		}
-
-		mysqli_close($esteka);
 	}
 ?>
 
