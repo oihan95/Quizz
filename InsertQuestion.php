@@ -34,26 +34,45 @@
 				$sql = "SELECT Izena FROM Erabiltzaile WHERE Eposta = '$email'";
 				$ema = mysqli_query($esteka,$sql);
 				$row = mysqli_fetch_assoc($ema);
-				echo "<span>Kaixo </span><span class="."red".">".$row['Izena'].":"."</span>"
+				echo "<span>Kaixo </span><span class="."red".">".$row['Izena'].":"."</span>";
+				mysqli_close($esteka);
 				?>
 					
 				</div>
 				<div class="wrapper center">
 				<form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" action="InsertQuestion.php" method="post" class="elegant-aero">
-						<p>Egilearen eposta:</p>
-						<p><input class="input" type="text" name="mail" id="posta" value=""/></p>
 						<p>Galderaren testua: </p>
-						<p><textarea class="textarea" cols="40" rows="5" id="interests" name="interests"></textarea></p>
+						<p><textarea class="textarea" cols="40" rows="5" id="galdera" name="question"></textarea></p>
 						<p>Galderaren erantzun zuzena: </p>
-						<p><textarea class="textarea" cols="40" rows="5" id="interests" name="interests"></textarea></p>
+						<p><textarea class="textarea" cols="40" rows="5" id="erantzuna" name="answer"></textarea></p>
 						<p>Zailtasun-maila:</p>
-						<p><input class="input" type="text" name="mail" id="posta" value=""/></p>
+						<p><input class="input" type="text" name="level" id="maila" value=""/></p>
 						<p><button class="button" type="submit">Gorde galdera</button></p>
 					</form>
 				</div>
 			</body>
 		</html>
 	<?php
+	}
+?>
+<?php
+	if (!empty($_POST['question']) && !empty($_POST['answer'])) {
+		$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
+
+		if (!$esteka)
+		{ 	
+			echo "Hutsegitea MySQLra konetatzerakoan". PHP_EOL;
+			echo "error depurazio akatsa: " . mysqli_connect_error().PHP_EOL;
+			exit;
+		}
+
+		$zenb = "SELECT MAX(Zenbakia) as n FROM Galderak";
+		$emaitza = mysqli_query($esteka,$zenb);
+		$row = mysqli_fetch_assoc($emaitza);
+		$n = $row['n'];
+		$n++;
+
+		
 	}
 ?>
 

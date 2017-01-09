@@ -58,5 +58,4 @@ if (!($ema -> num_rows == 0)) {
 	</html>
 	<?php
 }
-
 ?>
