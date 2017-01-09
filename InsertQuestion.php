@@ -56,6 +56,8 @@
 
 <?php
 
+
+//Galdera gorde
 if (!empty($_POST['question']) && !empty($_POST['answer'])){
 	$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
 
@@ -64,59 +66,63 @@ if (!empty($_POST['question']) && !empty($_POST['answer'])){
 		echo "Hutsegitea MySQLra konetatzerakoan". PHP_EOL;
 		echo "error depurazio akatsa: " . mysqli_connect_error().PHP_EOL;
 		exit;
-	}
+	}else{
+		$zenb = "SELECT MAX(Zenbakia) as n FROM Galderak";
+		$emaitza = mysqli_query($esteka,$zenb);
+		$row = mysqli_fetch_assoc($emaitza);
+		$n = $row['n'];
+		$n++;
 
-	$zenb = "SELECT MAX(Zenbakia) as n FROM Galderak";
-	$emaitza = mysqli_query($esteka,$zenb);
-	$row = mysqli_fetch_assoc($emaitza);
-	$n = $row['n'];
-	$n++;
+		$galdera = $_POST['question'];
+		$erantzuna = $_POST['answer'];
+		$level = $_POST['level'];
 
-	$galdera = $_POST['question'];
-	$erantzuna = $_POST['answer'];
-	$level = $_POST['level'];
-
-	if (!empty($level)) {
-		if(filter_var($level, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[1-5]/")))== FALSE){
-			die( "Zailtasun-maila 1 eta 5 artean egon behar da");
+		if (!empty($level)) {
+			if(filter_var($level, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[1-5]/")))== FALSE){
+				die( "Zailtasun-maila 1 eta 5 artean egon behar da");
+			}else{
+				$sql = "INSERT INTO Galderak VALUES ('$n','$email','$galdera','$erantzuna','$level')";
+			}
 		}else{
-			$sql = "INSERT INTO Galderak VALUES ('$n','$email','$galdera','$erantzuna','$level')";
+			$sql = "INSERT INTO Galderak VALUES ('$n','$email','$galdera','$erantzuna','NULL')";
 		}
-	}else{
-		$sql = "INSERT INTO Galderak VALUES ('$n','$email','$galdera','$erantzuna','NULL')";
-	}
 
-	$ema = mysqli_query($esteka,$sql);
+		$ema = mysqli_query($esteka,$sql);
 
-	if (!$ema){
-		die('Errorea query-a gauzatzerakoan: '.msqli_error());
-	}
+		if (!$ema){
+			die('Errorea query-a gauzatzerakoan: '.msqli_error());
+		}
 
-	$zenbEki = "SELECT MAX(ID) as ekintzan FROM Ekintzak";
-	$emaitzaEki = mysqli_query($esteka,$zenbEki);
-	$rowEki = mysqli_fetch_assoc($emaitzaEki);
-	$nEKI = $rowEki['ekintzan'];
-	$nEKI++;
+		//XML atala
 
-	$data = date('Y-m-d H:i:s', time());
-	$ipaddress = '';
-	$konex=$_SESSION['Konexioa'];
+		
 
-	$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera Txertatu','$data','$ipaddress' )";
+		//Ekintza gorde
 
-	$emaitzaEkintza = mysqli_query($esteka,$ekintza);
+		$zenbEki = "SELECT MAX(ID) as ekintzan FROM Ekintzak";
+		$emaitzaEki = mysqli_query($esteka,$zenbEki);
+		$rowEki = mysqli_fetch_assoc($emaitzaEki);
+		$nEKI = $rowEki['ekintzan'];
+		$nEKI++;
 
-	if (!$emaitzaEkintza){ 
-		die('Errorea query-a gauzatzerakoan: ' .mysqli_error($link));
-	}else{
-		mysqli_close($esteka);
-		echo('<script type="text/javascript">');
-		echo('window.onload = function(){');
-		echo('alert("Eskerrik asko galdera gehitzeagatik");');
-		echo('}');
-		echo('</script>');
+		$data = date('Y-m-d H:i:s', time());
+		$ipaddress = '';
+		$konex=$_SESSION['Konexioa'];
+
+		$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera Txertatu','$data','$ipaddress' )";
+
+		$emaitzaEkintza = mysqli_query($esteka,$ekintza);
+
+		if (!$emaitzaEkintza){ 
+			die('Errorea query-a gauzatzerakoan: ' .mysqli_error($link));
+		}else{
+			mysqli_close($esteka);
+			echo('<script type="text/javascript">');
+			echo('window.onload = function(){');
+			echo('alert("Eskerrik asko galdera gehitzeagatik");');
+			echo('}');
+			echo('</script>');
+		}
 	}
 }
 ?>
-
-
