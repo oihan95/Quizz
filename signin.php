@@ -14,15 +14,27 @@ $sql = "SELECT * FROM Erabiltzaile WHERE Eposta = '$_POST[mail]' AND  Pasahitza 
 $ema = mysqli_query($esteka,$sql);
 
 if (!($ema -> num_rows == 0)) {
-	session_start(); 
-	$_SESSION['email']=$_POST['mail'];
 	
-	$sql1="SELECT MAX(Zenbakia) AS zenbakia FROM Konexioak";
-	$em = mysqli_query($link,$sql1);	
-	$zenb =mysqli_fetch_array( $em );
-	$zenbaki= $zenb["zenbakia"];
+	
+	$maxKonex = "SELECT MAX(ID) AS nKonex FROM Konexioak";
+	$emaitzaKonex = mysqli_query($esteka,$maxKonex);	
+	$zenb = mysqli_fetch_array($emaitzaKonex);
+	$zenbaki = $zenb["nKonex"];
 	++$zenbaki;
-	header('Location: InsertQuestion.php');
+
+	$data = date('Y-m-d H:i:s', time());
+	$konexiosql = "INSERT INTO Konexioak VALUES ('$zenbaki','$_POST[mail]','$data')";
+	$emaitzsqlkonexioa = mysqli_query($esteka,$konexiosql);
+	if (!$emaitzsqlkonexioa){
+		die('Errorea query-a gauzatzerakoan: ' .mysqli_error($esteka));
+	}else{
+		session_start(); 
+		$_SESSION['email']=$_POST['mail'];
+		$_SESSION['Konexioa']=$zenbaki;
+		header('Location: InsertQuestion.php');
+	}
+
+	
 }else{
 	mysqli_close($esteka);
 	?>

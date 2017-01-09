@@ -88,17 +88,17 @@
 			die('Errorea query-a gauzatzerakoan: '.msqli_error());
 		}
 
-		$zenbKonex = "SELECT MAX(ID) as konexn FROM Konexioak";
-		$emaitzaKonex = mysqli_query($esteka,$zenbKonex);
-		$rowKonex = mysqli_fetch_assoc($emaitzaKonex);
-		$nKonex = $rowKonex['konexn'];
-		$nKonex++;
+		$zenbEki = "SELECT MAX(ID) as ekintzan FROM Ekintzak";
+		$emaitzaEki = mysqli_query($esteka,$zenbEki);
+		$rowEki = mysqli_fetch_assoc($emaitzaEki);
+		$nEKI = $rowEki['ekintzan'];
+		$nEKI++;
 
-		$data = date('YYYY-MM-DD HH:MM:SS', time());
+		$data = date('Y-m-d H:i:s', time());
 		$ipaddress = '';
 		$konex=$_SESSION['Konexioa'];
 
-		$ekintza = "INSERT INTO Ekintzak VALUES ('$nKonex','$konex','$email','Galdera Txertatu','$data','$ipaddress' )";
+		$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera Txertatu','$data','$ipaddress' )";
 
 		$emaitzaEkintza = mysqli_query($esteka,$ekintza);
 
