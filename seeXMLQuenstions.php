@@ -22,7 +22,28 @@
 			<h4>Hauek dira Quizzes-eko XML fitxategian dauden galdera guztiak</h4>
 			<br>
 			<?php
-			
+				$FILE='galderak.xml';
+
+				if(!file_exists($FILE)){
+					echo('<p>Bisita liburua hutsik dago.</p>');
+				} elseif (!($fitxategia=simplexml_load_file($FILE))) {
+					echo('<p>Errore bat gertatu datu bisita liburua irakurtzean. Barkatu eragozpenak</p>');
+				} else {
+					echo('<div class="table">');
+					echo('<div class="header-row row">');
+					echo('<span class="cell">Enuntziatua</span>');
+					echo('<span class="cell">Konplexutasuna</span>');
+					echo('<span class="cell">Gaia</span>');
+					echo('</div>');
+					foreach($fitxategia->galdera as $galdera) {
+						echo('<div class="row">');
+					    echo('<span class="cell">'.$kanta->artista.'</span>');
+					    echo('<span class="cell">'.$kanta->album.'</span>');
+		    			echo('<span class="cell">'.$kanta->generoa.'</span>');
+		    			echo('</div>');
+					}
+					echo('</div>');
+				}
 			?>
 		</div>
 	</body>
