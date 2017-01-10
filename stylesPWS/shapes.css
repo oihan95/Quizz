@@ -28,9 +28,8 @@ body{
 	margin-left:auto;
     margin-right:auto;
     max-width: 350px;
-    background: #E20800;
+    background: #FFF;
     font: 13px Monaco, monospace;
-    color: #000;
     border-radius: 4px;
     font-size: bold;
 }
