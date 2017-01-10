@@ -76,6 +76,14 @@ function galderakkontatu(){
 	}
 }
 
-function sarrera(){
-	alert("Hello");
+function aztertuposta(eposta){
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("soapEmail").innerHTML= xhttp.responseText;
+		}
+	};
+
+	xhttp.open("GET","soapEmail.php?eposta="+eposta, true);
+	xhttp.send();	
 }
