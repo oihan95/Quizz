@@ -5,6 +5,7 @@
 		<title>Quizzes - Erabiltzailearen informazioa</title>
     	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
     	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
+    	<script type="text/javascript" src="form.js"></script>
   	</head>
   	<body>
 	  	<div class = "header">
@@ -20,7 +21,8 @@
 		<div class="wrapper jump center">
 		<h4>Sartu ikaslearen eposta, bere informazioa ikusi ahal izateko</h4>
 		<br>
-			<form enctype="multipart/form-data" name = "erregistro" id="erregistro" action="#" method="post" class="elegant-aero">
+		<OBJECT id="datuak" data="erabiltzaileak.xml" type="text/xml" style="display:none"></OBJECT>
+			<form enctype="multipart/form-data" name = "erregistro" id="erregistro" class="elegant-aero">
 				<p>Eposta:</p>
 				<p><input class="input" type="text" name="mail" id="eposta" value=""/></p>
 				<p>Izena:</p>
@@ -29,8 +31,7 @@
 				<p><input class="input" type="text" name="surnames" id="abizenak" value=""/></p>
 				<p>Telefono zenbakia:</p>
 				<p><input class="input" type="text" name="phonenumber" id="telefonozenbakia" value=""/></p>
-				<br>
-				<p><button class="button" type="submit">Osatu</button></p>
+				<p><button class="button" onclick="osatu()" >Osatu</button></p>
 			</form>
 		</div>
 	</body>
