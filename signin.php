@@ -31,7 +31,7 @@ if (!($ema -> num_rows == 0)) {
 		session_start(); 
 		$_SESSION['email']=$_POST['mail'];
 		$_SESSION['Konexioa']=$zenbaki;
-		header('Location: InsertQuestion.php');
+		header('Location: handlingQuizes.php');
 	}
 
 	
@@ -56,7 +56,7 @@ if (!($ema -> num_rows == 0)) {
 		  	<div class = "header">
 				<div id="logo">Quiz: crazy questions</div>
 					<div class="navbar">
-						<a href="layout.html">Home</a>
+						<a href="layout.php">Home</a>
 						<a href='quizzes.php'>Quizzes</a>
 						<a href="signup.html">Sign Up</a>
 						<a href="signin.html">Sign In</a>

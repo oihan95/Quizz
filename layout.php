@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    session_start();
+    if (isset($_SESSION['email'])) {
+        header('Location: handlingQuizes.php');
+        exit();
+    }
+?>
+
+<!DOCTYPE html>
 <html>
 	<head>
     	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -9,7 +17,7 @@
 	  	<div class = "header">
 			<div id="logo">Quiz: crazy questions</div>
 				<div class="navbar">
-					<a href="layout.html">Home</a>
+					<a href="layout.php">Home</a>
 					<a href='quizzes.php'>Quizzes</a>
 					<a href="signup.html">Sign Up</a>
 					<a href="signin.html">Sign In</a>

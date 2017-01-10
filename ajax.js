@@ -6,10 +6,10 @@ xhttp.onreadystatechange = function(){
 };
 
 function ikusiGalderak(){
-	if(document.getElementById('txtHint').style.display == 'block'){
-		document.getElementById('txtHint').style.display = 'none';
+	if(document.getElementById('galderak').style.display == 'block'){
+		document.getElementById('galderak').style.display = 'none';
 	}else{
-		document.getElementById('txtHint').style.display = 'block'; 
+		document.getElementById('galderak').style.display = 'block'; 
 		xhttp.open("GET","showmyquizzes.php", true);
 		xhttp.send();
 	}

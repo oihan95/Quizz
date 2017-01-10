@@ -1,0 +1,16 @@
+*{
+	font-family: Monaco, monospace;
+}
+
+body{
+	background: #000000;
+}
+
+.box{
+	margin: 0px auto;
+	background: #6495ED;
+	border-radius: 4px;
+	width:70%;
+	color: #fff;
+	text-align: center;
+}

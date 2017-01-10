@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: handlingQuizes.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +13,7 @@
         <title>Quizzes - Maneiatu galderak</title>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type="text/javascript" src="tabs.js"></script>
+        <script type="text/javascript" src="ajax.js"></script>
         <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
         <link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
         <link rel="stylesheet" type="text/css" href="stylesPWS/colours.css">
@@ -15,14 +23,23 @@
       <div class = "header">
             <div id="logo">Quiz: crazy questions</div>
                 <div class="navbar">
-                    <a href="layout.html">Home</a>
-                    <a href='quizzes.php'>Quizzes</a>
-                    <a href="signup.html">Sign Up</a>
-                    <a href="signin.html">Sign In</a>
+                    <a href="layout.php">Home</a>
                     <a href="credits.html">Credits</a>
+                    <a href="logout.php">Log out</a>
                 </div>
         </div>
-        <div class="wrapper jump center">
+        <div class="wrapper jump">
+        <?php
+            $email=$_SESSION['email'];
+            $esteka = mysqli_connect("localhost", "root",  "", "Quiz");
+            $sql = "SELECT Izena FROM Erabiltzaile WHERE Eposta = '$email'";
+            $ema = mysqli_query($esteka,$sql);
+            $row = mysqli_fetch_assoc($ema);
+            echo "<span>Kaixo </span><span class="."red".">".$row['Izena'].":"."</span>";
+            mysqli_close($esteka);
+        ?>   
+        </div>
+        <div class="wrapper center">
             <div class="contenedor">
                 <div id="pestanas">
                     <ul id=lista>
@@ -36,7 +53,7 @@
                     <div id="cpestana1">
                         HTML, siglas de HyperText Markup Language («lenguaje de marcado de hipertexto»), hace referencia al 
                     </div>
-                    <div id="cpestana2">
+                    <div id="cpestana2" onclick="ikusiGalderak()">
                         <div id="galderak" style="display: none;" >
                             
                         </div> 
