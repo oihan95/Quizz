@@ -87,3 +87,14 @@ function aztertuposta(eposta){
 	xhttp.open("GET","soapEmail.php?eposta="+eposta, true);
 	xhttp.send();	
 }
+
+function aztertupasahitza(pass){
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("soapPass").innerHTML= xhttp.responseText;
+		}
+	};
+	xhttp.open("GET","egiaztatuPasahitza.php?pass="+pass, true);
+	xhttp.send();	
+}	

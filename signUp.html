@@ -6,6 +6,8 @@
     	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
     	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
     	<link rel="stylesheet" type="text/css" href="stylesPWS/shapes.css">
+    	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    	<script type="text/javascript" src="ajax.js"></script>
     	<script type="text/javascript" src="form.js"></script>
   	</head>
   	<body>
@@ -31,8 +33,14 @@
 				<p><input class="input" type="text" name="abi2" id="abi2" value=""/></p>
 				<p>E-posta (*):</p>
 				<p><input class="input" type="text" name="mail" id="posta" value="" onchange="aztertuposta(this.value)"/></p>
+				<div id=soapMail class="errorBox">
+				</div>
+				<br>
 				<p>Pasahitza (*):
 				<p><input class="input" type="password" name="pass" id="pasahitza" value=""/></p>
+				<div id=soapPass class="errorBox">
+				</div>
+				<br>
 				<p>Telefono zenbakia (*):</p>
 				<p><input class="input" type="text" name="telf" id="telf" value=""/></p>
 				<p>Espezialitatea (*):</p>
@@ -54,9 +62,6 @@
 				<br>
 				<p><button class="button" type="submit">Bidali</button></p>
 			</form>
-			<br>
-			<div id=soapMail class="errorBox">
-			</div>
 		</div>
 	</body>
 </html>
