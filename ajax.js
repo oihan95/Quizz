@@ -54,6 +54,28 @@ function gehitugaldera(){
 	var erantzun = insertquestion.erantzuna.value;
 	var level = insertquestion.maila.value;
 
-	xhttp5.open("POST","InsertQuestion.php", true);
-	xhttp5.send("question="+galdera+"&answer="+erantzun+"&level="+level);
+	var param = "question="+galdera+"&answer="+erantzun+"&level="+level;
+
+	xhttp5.open("GET","InsertQuestion.php?"+param, true);
+	xhttp5.send();
+}
+
+function galderakkontatu(){
+	var xhttp6 = new XMLHttpRequest();
+	xhttp6.onreadystatechange = function(){
+		if ((xhttp6.readyState==4)&&(xhttp6.status==200 )){
+			document.getElementById("kont").innerHTML= xhttp6.responseText;
+		}
+	};
+	xhttp6.open("GET","countQuizzes.php", true);
+	xhttp6.send();
+
+	function refresh(){
+		galderakkontatu();
+		setInterval(galderakkontatu(),5000);
+	}
+}
+
+function sarrera(){
+	alert("Hello");
 }

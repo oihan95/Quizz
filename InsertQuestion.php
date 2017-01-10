@@ -24,9 +24,9 @@
 
 		//DATUAK LORTU	
 
-		$galdera = $_POST['question'];
-		$erantzuna = $_POST['answer'];
-		$level = $_POST['level'];
+		$galdera = $_GET['question'];
+		$erantzuna = $_GET['answer'];
+		$level = $_GET['level'];
 
 		//DATUAK GORDE
 

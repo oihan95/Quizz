@@ -20,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="stylesPWS/shapes.css">
         <link rel="stylesheet" type="text/css" href="stylesPWS/table.css">
     </head>
-    <body onload="javascript:cambiarPestanna(pestanas,pestana1);">
+    <body onload="galderakkontatu()">
       <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
       <div class = "header">
             <div id="logo">Quiz: crazy questions</div>
@@ -39,10 +39,15 @@
             $row = mysqli_fetch_assoc($ema);
             echo "<span>Kaixo </span><span class="."red".">".$row['Izena'].":"."</span>";
             mysqli_close($esteka);
-        ?>   
+        ?> 
         </div>
         <div class="wrapper center">
         <br>
+            <div class="megabox" id="kont">
+            <br>
+            <br>
+            </div>
+            <br>
             <div class="megabox">
                 <p><input type="button" class="input" value="Editatu galdera" onclick="ikusieditatzekogalderak()"/>
                 <input type="button" class="input" value="Ikusi galderak" onclick="ikusiGalderak()"/>
