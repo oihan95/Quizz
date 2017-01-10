@@ -37,7 +37,9 @@
                         HTML, siglas de HyperText Markup Language («lenguaje de marcado de hipertexto»), hace referencia al 
                     </div>
                     <div id="cpestana2">
-                        El nombre hojas de estilo en cascada viene del inglés Cascading Style Sheets, del que toma sus siglas. 
+                        <div id="galderak" style="display: none;" >
+                            
+                        </div> 
                     </div>
                     <div id="cpestana3">
                         <form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" action="InsertQuestion.php" method="post" class="elegant-aero backgroundred">
