@@ -41,7 +41,7 @@
 			
 		</div>
 		<div class="wrapper center">
-		<form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" action="InsertQuestion.php" method="post" class="elegant-aero">
+			<form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" action="InsertQuestion.php" method="post" class="elegant-aero">
 				<p>Galderaren testua: </p>
 				<p><textarea class="textarea" cols="40" rows="5" id="galdera" name="question"></textarea></p>
 				<p>Galderaren erantzun zuzena: </p>

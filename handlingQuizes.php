@@ -7,6 +7,8 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type="text/javascript" src="tabs.js"></script>
         <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+        <link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
+        <link rel="stylesheet" type="text/css" href="stylesPWS/colours.css">
     </head>
     <body onload="javascript:cambiarPestanna(pestanas,pestana1);">
       <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
@@ -32,13 +34,21 @@
                 
                 <div id="contenidopestanas">
                     <div id="cpestana1">
-                        HTML, siglas de HyperText Markup Language («lenguaje de marcado de hipertexto»), hace referencia al lenguaje de marcado predominante para la elaboración de páginas web que se utiliza para describir y traducir la estructura y la información en forma de texto, así como para complementar el texto con objetos tales como imágenes. El HTML se escribe en forma de «etiquetas», rodeadas por corchetes angulares (<,>). HTML también puede describir, hasta un cierto punto, la apariencia de un documento, y puede incluir un script (por ejemplo JavaScript), el cual puede afectar el comportamiento de navegadores web y otros procesadores de HTML.
+                        HTML, siglas de HyperText Markup Language («lenguaje de marcado de hipertexto»), hace referencia al 
                     </div>
                     <div id="cpestana2">
-                        El nombre hojas de estilo en cascada viene del inglés Cascading Style Sheets, del que toma sus siglas. CSS es un lenguaje usado para definir la presentación de un documento estructurado escrito en HTML o XML2 (y por extensión en XHTML). El W3C (World Wide Web Consortium) es el encargado de formular la especificación de las hojas de estilo que servirán de estándar para los agentes de usuario o navegadores.
+                        El nombre hojas de estilo en cascada viene del inglés Cascading Style Sheets, del que toma sus siglas. 
                     </div>
                     <div id="cpestana3">
-                        JavaScript es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos,3 basado en prototipos, imperativo, débilmente tipado y dinámico.
+                        <form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" action="InsertQuestion.php" method="post" class="elegant-aero backgroundred">
+                            <p>Galderaren testua: </p>
+                            <p><textarea class="textarea" cols="40" rows="5" id="galdera" name="question"></textarea></p>
+                            <p>Galderaren erantzun zuzena: </p>
+                            <p><textarea class="textarea" cols="40" rows="5" id="erantzuna" name="answer"></textarea></p>
+                            <p>Zailtasun-maila:</p>
+                            <p><input class="input" type="text" name="level" id="maila" value=""/></p>
+                            <p><button class="button bluehover" type="submit">Gorde galdera</button></p>
+                        </form> 
                     </div>
                 </div>
             </div>
