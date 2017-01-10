@@ -5,6 +5,7 @@
 		<title>Quizzes - Sign Up</title>
     	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
     	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
+    	<link rel="stylesheet" type="text/css" href="stylesPWS/shapes.css">
     	<script type="text/javascript" src="form.js"></script>
   	</head>
   	<body>
@@ -29,7 +30,7 @@
 				<p>Bigarren abizena (*):</p>
 				<p><input class="input" type="text" name="abi2" id="abi2" value=""/></p>
 				<p>E-posta (*):</p>
-				<p><input class="input" type="text" name="mail" id="posta" value="" onchange="aztertuposta(this.value)" /></p>
+				<p><input class="input" type="text" name="mail" id="posta" value="" onchange="aztertuposta(this.value)"/></p>
 				<p>Pasahitza (*):
 				<p><input class="input" type="password" name="pass" id="pasahitza" value=""/></p>
 				<p>Telefono zenbakia (*):</p>
@@ -53,6 +54,9 @@
 				<br>
 				<p><button class="button" type="submit">Bidali</button></p>
 			</form>
+			<br>
+			<div id=soapMail class="errorBox">
+			</div>
 		</div>
 	</body>
 </html>

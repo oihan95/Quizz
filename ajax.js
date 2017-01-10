@@ -80,7 +80,7 @@ function aztertuposta(eposta){
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
-			document.getElementById("soapEmail").innerHTML= xhttp.responseText;
+			document.getElementById("soapMail").innerHTML= xhttp.responseText;
 		}
 	};
 

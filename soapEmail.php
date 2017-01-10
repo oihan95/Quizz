@@ -5,8 +5,8 @@
 	$soapclient = new nusoap_client('http://wsjiparsar.esy.es/webZerbitzuak/egiaztatuMatrikula.php?wsdl',true);
 	$result = $soapclient->call('egiaztatuE', array($email));
 	if($result=="BAI"){
-		echo 'Emaila gelako ikaslearena da.';
+		echo '<p>Emaila gelako ikaslearena da.</p>';
 	}else{
-		echo 'Emaila ez da gelako ikaslearena.';			
+		echo '<p>Emaila ez da gelako ikaslearena.</p>';			
 	}
 ?>
