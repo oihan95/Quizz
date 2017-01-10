@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['email'])) {
-        header('Location: handlingQuizes.php');
+        header('Location: error.html');
         exit();
     }
 ?>
