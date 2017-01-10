@@ -24,9 +24,9 @@
             <div class="contenedor">
                 <div id="pestanas">
                     <ul id=lista>
-                        <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>HTML</a></li>
-                        <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>CSS</a></li>
-                        <li id="pestana3"><a href='javascript:cambiarPestanna(pestanas,pestana3);'>JavaScript</a></li>
+                        <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Galderak editatu</a></li>
+                        <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Galderak bistaratu</a></li>
+                        <li id="pestana3"><a href='javascript:cambiarPestanna(pestanas,pestana3);'>Galderak gehitu</a></li>
                     </ul>
                 </div>
                 

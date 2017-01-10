@@ -1,7 +1,7 @@
 .contenedor{
     width: 100%;
     margin: 0px auto;
-    padding: 20px 1px 50px 0px;
+    padding: 20px 0px 50px 0px;
     border-radius: 10px;
 }
 
@@ -17,20 +17,21 @@
 }
 
 #pestanas ul{
-    margin-left: 0px;   
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 #pestanas li{
     list-style-type: none;
     float: left;
     text-align: center;
-    margin: 0px 2px -2px -0px;
+    margin: 0px 2px -2px 0px;
     background: #E20800;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border: 2px solid;
     border-bottom: #6495ED;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 43px 0px 20px;
 }
 
 #pestanas a:link{

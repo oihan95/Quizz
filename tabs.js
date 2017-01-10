@@ -1,5 +1,3 @@
-// Dadas la division que contiene todas las pestañas y la de la pestaña que se 
-// quiere mostrar, la funcion oculta todas las pestañas a excepcion de esa.
 function cambiarPestanna(pestannas,pestanna) {
     
     // Obtiene los elementos con los identificadores pasados.
@@ -28,7 +26,7 @@ function cambiarPestanna(pestannas,pestanna) {
         // borde superior del contenido que esta juesto debajo y se vea de este 
         // modo que esta seleccionada.
         $(cpestanna).css('display','');
-        $(pestanna).css('background','dimgray');
+        $(pestanna).css('background','#6495ED');
         $(pestanna).css('padding-bottom','2px'); 
     });
 
