@@ -2,8 +2,9 @@
 <html>
 	<head>
     	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Quizzes - Hasiera</title>
+		<title>Quizzes - Erabiltzailearen informazioa</title>
     	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+    	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
   	</head>
   	<body>
 	  	<div class = "header">
@@ -17,7 +18,20 @@
 				</div>
 		</div>
 		<div class="wrapper jump center">
-			
+		<h4>Sartu ikaslearen eposta, bere informazioa ikusi ahal izateko</h4>
+		<br>
+			<form enctype="multipart/form-data" name = "erregistro" id="erregistro" action="#" method="post" class="elegant-aero">
+				<p>Eposta:</p>
+				<p><input class="input" type="text" name="mail" id="eposta" value=""/></p>
+				<p>Izena:</p>
+				<p><input class="input" type="text" name="name" id="izena" value=""/></p>
+				<p>Abizenak:</p>
+				<p><input class="input" type="text" name="surnames" id="abizenak" value=""/></p>
+				<p>Telefono zenbakia:</p>
+				<p><input class="input" type="text" name="phonenumber" id="telefonozenbakia" value=""/></p>
+				<br>
+				<p><button class="button" type="submit">Osatu</button></p>
+			</form>
 		</div>
 	</body>
 </html>
