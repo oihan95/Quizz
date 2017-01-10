@@ -42,7 +42,7 @@
 
 		while( $row=mysqli_fetch_array($ema, MYSQLI_ASSOC)) {
 			echo('<div class="row">');
-			echo('<span class="cell"> <a href="" class="esteka black" onclick="ikusigaldera('.$row['Zenbakia'].')">'.$row['Testua'].'</a> </span>');
+			echo('<span class="cell"> <a class="esteka black" onclick="ikusigaldera('.$row['Zenbakia'].')">'.$row['Testua'].'</a> </span>');
 			if (strcmp($row['Zailtasuna'],'NULL')==0) {
 				echo('<span class="cell">NULL</span>');
 			}else{

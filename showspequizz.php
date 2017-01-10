@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$id=$_GET["q"];
 
 	$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
@@ -12,8 +13,9 @@
 	$data = date('Y-m-d H:i:s', time());
 	$ipaddress = '';
 	$konex=$_SESSION['Konexioa'];
+	$email=$_SESSION['email'];
 
-	$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera Txertatu','$data','$ipaddress' )";
+	$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera ikusi','$data','$ipaddress' )";
 
 	$emaitzaEkintza = mysqli_query($esteka,$ekintza);
 
@@ -23,9 +25,13 @@
 
 	$galdera = "SELECT * FROM Galderak WHERE Zenbakia = '$id'";
 
-	$row = mysqli_fetch_assoc($galdera);
+	$galderaemaitza = mysqli_query($esteka,$galdera);
 
+	$row=mysqli_fetch_array($galderaemaitza, MYSQLI_ASSOC);
+
+	echo "<br>";
 	echo '<p>Zailtasuna: '.$row['Zailtasuna'].'</p>';
 	echo '<br>';
 	echo ('<p>Testua: '.$row['Testua'].'</p>');
+	echo "<br>";
 ?>
