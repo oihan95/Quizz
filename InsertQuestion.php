@@ -2,7 +2,7 @@
 
 	session_start();
 	if (!isset($_SESSION['email'])) {
-		header('Location: layout.html');
+		header('Location: error.html');
 		exit();
 	}
 ?>

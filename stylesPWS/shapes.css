@@ -14,3 +14,12 @@ body{
 	color: #fff;
 	text-align: center;
 }
+
+.megabox{
+	margin: 0px auto 0px;
+	background: #6495ED;
+	border-radius: 4px;
+	width:90%;
+	color: #fff;
+	text-align: center;
+}

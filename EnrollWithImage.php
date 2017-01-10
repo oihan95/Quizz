@@ -1,4 +1,9 @@
 <?php
+	session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: error.html');
+        exit();
+    }
 
 //$esteka = mysqli_connect("mysql.hostinger.es", "u421176028_root", "123456",  "mysql_select_db");
 $esteka = mysqli_connect("localhost", "root",  "", "Quiz");

@@ -33,7 +33,7 @@
 	if ($ema == FALSE) {
 		echo "<h4>Ez duzu galderarik!</h4>";
 	}else{
-		echo('<h4>Egin click tituluaren gainean galdera ikusteko</h4>');
+		echo('<h4>Egin click tituluaren gainean galdera editatzeko</h4>');
 		echo('<div class="table">');
 		echo('<div class="header-row row">');
 		echo('<span class="cell">Enuntziatua</span>');
