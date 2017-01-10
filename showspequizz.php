@@ -34,4 +34,5 @@
 	echo '<br>';
 	echo ('<p>Testua: '.$row['Testua'].'</p>');
 	echo "<br>";
+	mysqli_close($esteka);
 ?>

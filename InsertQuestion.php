@@ -5,57 +5,6 @@
 		header('Location: error.html');
 		exit();
 	}
-?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-    	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Quizzes - Gehitu galdera</title>
-    	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
-    	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
-    	<link rel="stylesheet" type="text/css" href="stylesPWS/colours.css">
-  	</head>
-  	<body>
-	  	<div class = "header">
-			<div id="logo">Quiz: crazy questions</div>
-				<div class="navbar">
-					<a href="layout.php">Home</a>
-					<a href='quizzes.php'>Quizzes</a>
-					<a href="signup.html">Sign Up</a>
-					<a href="signin.html">Sign In</a>
-					<a href="credits.html">Credits</a>
-					<a href="logout.php">Log out</a>
-				</div>
-		</div>
-		<div class="wrapper jump">
-		<?php
-		$email=$_SESSION['email'];
-		$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
-		$sql = "SELECT Izena FROM Erabiltzaile WHERE Eposta = '$email'";
-		$ema = mysqli_query($esteka,$sql);
-		$row = mysqli_fetch_assoc($ema);
-		echo "<span>Kaixo </span><span class="."red".">".$row['Izena'].":"."</span>";
-		mysqli_close($esteka);
-		?>
-			
-		</div>
-		<div class="wrapper center">
-			<form enctype="multipart/form-data" name = "insertquestion" id="insertquestion" action="InsertQuestion.php" method="post" class="elegant-aero">
-				<p>Galderaren testua: </p>
-				<p><textarea class="textarea" cols="40" rows="5" id="galdera" name="question"></textarea></p>
-				<p>Galderaren erantzun zuzena: </p>
-				<p><textarea class="textarea" cols="40" rows="5" id="erantzuna" name="answer"></textarea></p>
-				<p>Zailtasun-maila:</p>
-				<p><input class="input" type="text" name="level" id="maila" value=""/></p>
-				<p><button class="button" type="submit">Gorde galdera</button></p>
-			</form>
-		</div>
-	</body>
-</html>
-
-<?php
-
 
 //Galdera gorde
 if (!empty($_POST['question']) && !empty($_POST['answer'])){
@@ -72,6 +21,8 @@ if (!empty($_POST['question']) && !empty($_POST['answer'])){
 		$row = mysqli_fetch_assoc($emaitza);
 		$n = $row['n'];
 		$n++;
+
+		$email=$_SESSION['email'];
 
 		$galdera = $_POST['question'];
 		$erantzuna = $_POST['answer'];
@@ -90,14 +41,17 @@ if (!empty($_POST['question']) && !empty($_POST['answer'])){
 		$ema = mysqli_query($esteka,$sql);
 
 		if (!$ema){
-			die('Errorea query-a gauzatzerakoan: '.msqli_error());
+			echo('Errorea query-a gauzatzerakoan: '.msqli_error());
+			exit();
+		}else{
+			echo('<p>Galdera ongi gehitu da</p>');
 		}
 
 		//XML atala
 
 		$xml = simplexml_load_file('galderak.xml');
 		$assessmentItem = $xml->addChild('assessmentItem');
-		$assessmentItem->addAttribute('complexity', $zailtasuna);
+		$assessmentItem->addAttribute('complexity', $level);
 		$assessmentItem->addAttribute('subject', '');
 		$itemBody = $assessmentItem->addChild('itemBody');
 		$itemBody->addChild('p',$galdera);
@@ -125,12 +79,11 @@ if (!empty($_POST['question']) && !empty($_POST['answer'])){
 			die('Errorea query-a gauzatzerakoan: ' .mysqli_error($link));
 		}else{
 			mysqli_close($esteka);
-			echo('<script type="text/javascript">');
-			echo('window.onload = function(){');
-			echo('alert("Eskerrik asko galdera gehitzeagatik");');
-			echo('}');
-			echo('</script>');
+			echo "<br>";
+			echo "<p>Ekintza ongi gorde da</p>";
 		}
 	}
+}else{
+	echo('<p>txarto juen da</p>');
 }
 ?>

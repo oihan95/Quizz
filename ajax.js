@@ -41,3 +41,14 @@ function ikusigaldera(id){
 	xhttp4.open("GET","showspequizz.php?q="+id, true);
 	xhttp4.send();
 }
+
+function gehitugaldera(){
+	var xhttp5 = new XMLHttpRequest();
+	xhttp5.onreadystatechange = function(){
+		if ((xhttp5.readyState==4)&&(xhttp5.status==200 )){
+			document.getElementById("laukia").innerHTML= xhttp5.responseText;
+		}
+	};
+	xhttp5.open("GET","InsertQuestion.php", true);
+	xhttp5.send();
+}
