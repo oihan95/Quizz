@@ -110,9 +110,18 @@ function osatu(){
 	var kor = document.getElementById("korreoa").value;
 	var epostenZer=xmlDoc.getElementsByTagName("eposta");
 	var tfnoZer=xmlDoc.getElementsByTagName("telefonoa");
+	var izenZer=xmlDoc.getElementsByTagName("izena");
+	var abi1Zer=xmlDoc.getElementsByTagName("abizena1");
+	var abi2Zer=xmlDoc.getElementsByTagName("abizena2");
 	for (var i = 0; i < epostenZer.length; i++) {
 		if (kor==epostenZer[i].childNodes[0].nodeValue){
-			document.getElementById('tfonoa').value=tfnoZer[i].childNodes[0].nodeValue;
+			document.getElementById('telefonozenbakia').value=tfnoZer[i].childNodes[0].nodeValue;
+			document.getElementById('izena').value=izenZer[i].childNodes[0].nodeValue;
+			var abi1 = abi1Zer[i].childNodes[0].nodeValue;
+			var abi1ona = abi1.concat(' ');
+			var abi2 = abi2Zer[i].childNodes[0].nodeValue;
+			var abizenak = abi1ona.concat(abi2)
+			document.getElementById('abizenak').value=abizenak;
 			dago=true;
 			break;
 		}

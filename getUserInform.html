@@ -22,16 +22,16 @@
 		<h4>Sartu ikaslearen eposta, bere informazioa ikusi ahal izateko</h4>
 		<br>
 		<OBJECT id="datuak" data="erabiltzaileak.xml" type="text/xml" style="display:none"></OBJECT>
-			<form enctype="multipart/form-data" name = "erregistro" id="erregistro" class="elegant-aero">
+			<form name = "erregistro" id="erregistro" class="elegant-aero">
 				<p>Eposta:</p>
-				<p><input class="input" type="text" name="mail" id="eposta" value=""/></p>
+				<p><input class="input" type="text" name="mail" id="korreoa" value=""/></p>
 				<p>Izena:</p>
 				<p><input class="input" type="text" name="name" id="izena" value=""/></p>
 				<p>Abizenak:</p>
 				<p><input class="input" type="text" name="surnames" id="abizenak" value=""/></p>
 				<p>Telefono zenbakia:</p>
 				<p><input class="input" type="text" name="phonenumber" id="telefonozenbakia" value=""/></p>
-				<p><button class="button" onclick="osatu()" >Osatu</button></p>
+				<p><input type="button" class="input" value="Osatu" onclick="osatu()"></input></p>
 			</form>
 		</div>
 	</body>

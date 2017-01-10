@@ -23,6 +23,23 @@
     margin: 2px 6px 16px 0px;
 }
 
+.input[type="button"]{
+    margin-top: 10px;
+    padding: 10px 30px 10px 30px;
+    background: #000000;
+    border: none;
+    color: #FFF;
+    border-radius: 4px;
+    font-family: Monaco, monospace;
+    box-shadow: 1px 1px 1px #FFF;
+    -webkit-box-shadow: 1px 1px 1px #4C6E91;
+    -moz-box-shadow: 1px 1px 1px #4C6E91;
+}
+
+.input[type="button"]:hover{
+    background: #E20800;
+}
+
 .textarea{
     height:100px;
     padding: 5px 0px 0px 5px;
