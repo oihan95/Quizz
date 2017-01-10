@@ -11,22 +11,22 @@
 	$server->register('pasahitzaE', array('pass'=>'xsd:string'), array('emaitza'=>'xsd:string'), $ns);
 
 	function pasahitzaE($pass){
-			$myfile = fopen($_SERVER['DOCUMENT_ROOT']."/Quizz/toppasswords.txt", "r");
-			
-			if ($myfile){
-				while (($ler = fgets($myfile)) !== false){
-					$ler = rtrim($ler, "\r\n");
-					if(strcmp($ler,$pass)==0){
-						fclose($myfile);
-						return "BALIOGABEA";
-					}
+		$myfile = fopen($_SERVER['DOCUMENT_ROOT']."/Quizz/toppasswords.txt", "r");
+		
+		if ($myfile){
+			while (($ler = fgets($myfile)) !== false){
+				$ler = rtrim($ler, "\r\n");
+				if(strcmp($ler,$pass)==0){
+					fclose($myfile);
+					return "BALIOGABEA";
 				}
 			}
-			fclose($myfile);
-			return "BALIOZKOA";
-			
 		}
-	//nusoap klaseko sevice metodoari dei egiten diogu
+		fclose($myfile);
+		return "BALIOZKOA";
+		
+	}
+
 	$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
 	$server->service($HTTP_RAW_POST_DATA);
 ?>
