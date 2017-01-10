@@ -24,3 +24,15 @@
 	vertical-align: middle;
 	font-size: 13px;
 }
+
+a.esteka {
+	text-decoration: none;
+}
+
+a.esteka:hover{
+	color: #E20800;
+}
+
+.black{
+	color: #000000;
+}

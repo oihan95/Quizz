@@ -30,3 +30,14 @@ function ikusieditatzekogalderak(){
 	xhttp3.open("GET","showmyqyuizzestoedit.php", true);
 	xhttp3.send();
 }
+
+function ikusigaldera(id){
+	var xhttp4 = new XMLHttpRequest();
+	xhttp4.onreadystatechange = function(){
+		if ((xhttp4.readyState==4)&&(xhttp4.status==200 )){
+			document.getElementById("laukia").innerHTML= xhttp4.responseText;
+		}
+	};
+	xhttp4.open("GET","showspequizz.php?key="+id, true);
+	xhttp4.send();
+}
