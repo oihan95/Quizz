@@ -1,11 +1,7 @@
 <?php
-	$id=$_GET["key"];
+	$id=$_GET["q"];
 
 	$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
-
-	$lortugaldera = "SELECT * FROM Galderak WHERE Zenbakia = $id";
-
-	$galdera = mysqli_query($esteka,$lortugaldera);
 
 	$zenbEki = "SELECT MAX(ID) as ekintzan FROM Ekintzak";
 	$emaitzaEki = mysqli_query($esteka,$zenbEki);
@@ -16,22 +12,20 @@
 	$data = date('Y-m-d H:i:s', time());
 	$ipaddress = '';
 	$konex=$_SESSION['Konexioa'];
-	$email=$_SESSION['email'];
 
-	$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera Ikusi','$data','$ipaddress' )";
+	$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera Txertatu','$data','$ipaddress' )";
 
 	$emaitzaEkintza = mysqli_query($esteka,$ekintza);
 
-	if (!$emaitzaEkintza){
+	if (!$emaitzaEkintza){ 
 		die('Errorea query-a gauzatzerakoan: ' .mysqli_error($link));
 	}
 
+	$galdera = "SELECT * FROM Galderak WHERE Zenbakia = '$id'";
+
 	$row = mysqli_fetch_assoc($galdera);
 
-	echo "<div>";
-	echo "<p>Zailtasun-maila: ".$row['Zailtasuna']."</p>";
-	echo "<br>";
-	echo "<p>Testua: ".$row['Testua']."</p>";
-	echo "</div>";
-	mysqli_close($esteka);
+	echo '<p>Zailtasuna: '.$row['Zailtasuna'].'</p>';
+	echo '<br>';
+	echo ('<p>Testua: '.$row['Testua'].'</p>');
 ?>

@@ -38,6 +38,6 @@ function ikusigaldera(id){
 			document.getElementById("laukia").innerHTML= xhttp4.responseText;
 		}
 	};
-	xhttp4.open("GET","showspequizz.php?key="+id, true);
+	xhttp4.open("GET","showspequizz.php?q="+id, true);
 	xhttp4.send();
 }
