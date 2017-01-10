@@ -1,4 +1,5 @@
 <?php
+	echo "<p>kasfhkasfh</p>";
 
 	session_start();
 	if (!isset($_SESSION['email'])) {

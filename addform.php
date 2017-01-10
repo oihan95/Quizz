@@ -7,7 +7,7 @@
 	echo('<p><textarea class="textarea" cols="40" rows="5" id="erantzuna" name="answer"></textarea></p>');
 	echo('<p>Zailtasun-maila:</p>');
 	echo('<p><input class="input" type="text" name="level" id="maila" value=""/></p>');
-	echo('<p><input type="submit" value="Gehitu galdera"></input></p>');
+	echo('<p><input type="submit" value="Gehitu galdera"/></p>');
 	echo('</form>');
 	echo('<br>');
 ?>
