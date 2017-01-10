@@ -49,6 +49,11 @@ function gehitugaldera(){
 			document.getElementById("laukia").innerHTML= xhttp5.responseText;
 		}
 	};
-	xhttp5.open("GET","InsertQuestion.php", true);
-	xhttp5.send();
+	var erregistro = document.getElementById('insertquestion');
+	var galdera = insertquestion.galdera.value;
+	var erantzun = insertquestion.erantzuna.value;
+	var level = insertquestion.maila.value;
+
+	xhttp5.open("POST","InsertQuestion.php", true);
+	xhttp5.send("question="+galdera+"&answer="+erantzun+"&level="+level);
 }

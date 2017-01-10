@@ -1,33 +1,34 @@
 <?php
-	echo "<p>kasfhkasfh</p>";
-
 	session_start();
 	if (!isset($_SESSION['email'])) {
 		header('Location: error.html');
 		exit();
 	}
 
-//Galdera gorde
-if (!empty($_POST['question']) && !empty($_POST['answer'])){
 	$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
 
 	if (!$esteka)
 	{ 	
 		echo "Hutsegitea MySQLra konetatzerakoan". PHP_EOL;
 		echo "error depurazio akatsa: " . mysqli_connect_error().PHP_EOL;
-		exit;
+		exit();
 	}else{
+
+		//GALDERA ZENBAKI MAXIMOA LORTU
+
 		$zenb = "SELECT MAX(Zenbakia) as n FROM Galderak";
 		$emaitza = mysqli_query($esteka,$zenb);
 		$row = mysqli_fetch_assoc($emaitza);
 		$n = $row['n'];
 		$n++;
 
-		$email=$_SESSION['email'];
+		//DATUAK LORTU	
 
 		$galdera = $_POST['question'];
 		$erantzuna = $_POST['answer'];
 		$level = $_POST['level'];
+
+		//DATUAK GORDE
 
 		if (!empty($level)) {
 			if(filter_var($level, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[1-5]/")))== FALSE){
@@ -60,7 +61,7 @@ if (!empty($_POST['question']) && !empty($_POST['answer'])){
 		$correctResponse->addChild('value', $erantzuna);
 		$errorea = $xml->asXML('galderak.xml');
 
-		//Ekintza gorde
+		//EKINTZA GORDE
 
 		$zenbEki = "SELECT MAX(ID) as ekintzan FROM Ekintzak";
 		$emaitzaEki = mysqli_query($esteka,$zenbEki);
@@ -71,20 +72,14 @@ if (!empty($_POST['question']) && !empty($_POST['answer'])){
 		$data = date('Y-m-d H:i:s', time());
 		$ipaddress = '';
 		$konex=$_SESSION['Konexioa'];
+		$email=$_SESSION['email'];
 
-		$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera Txertatu','$data','$ipaddress' )";
+		$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera Ikusi','$data','$ipaddress' )";
 
 		$emaitzaEkintza = mysqli_query($esteka,$ekintza);
 
-		if (!$emaitzaEkintza){ 
+		if (!$emaitzaEkintza){
 			die('Errorea query-a gauzatzerakoan: ' .mysqli_error($link));
-		}else{
-			mysqli_close($esteka);
-			echo "<br>";
-			echo "<p>Ekintza ongi gorde da</p>";
 		}
 	}
-}else{
-	echo('<p>txarto juen da</p>');
-}
 ?>
