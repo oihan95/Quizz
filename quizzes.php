@@ -5,6 +5,7 @@
 		<title>Quizzes - Galderak</title>
     	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
     	<link rel="stylesheet" type="text/css" href="stylesPWS/table.css">
+    	<link rel="stylesheet" type="text/css" href="stylesPWS/shapes.css">
 
   	</head>
   	<body>
@@ -21,31 +22,35 @@
 		<div class="wrapper jump center">
 			<h4>Hauek dira Quizzes-en dauden galdera guztiak</h4>
 			<br>
-			<?php
-			$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
+			<h5>Galdera bat ikusi nahi baduzu egin click enuntziatuaren gainean</h5>
+			<br>
+			<div id=lauki1 class="megabox">
+				<?php
+				$esteka = mysqli_connect("localhost", "root",  "", "Quiz");
 
-			$ema = mysqli_query($esteka, "SELECT * from Galderak");
+				$ema = mysqli_query($esteka, "SELECT * from Galderak");
 
-			echo('<div class="table">');
-			echo('<div class="header-row row">');
-			echo('<span class="cell">Enuntziatua</span>');
-			echo('<span class="cell">Zailtasun-maila</span>');
-			echo('</div>');
+				echo('<div class="table">');
+				echo('<div class="header-row row">');
+				echo('<span class="cell">Enuntziatua</span>');
+				echo('<span class="cell">Zailtasun-maila</span>');
+				echo('</div>');
 
-			while( $row=mysqli_fetch_array($ema, MYSQLI_ASSOC)) {
-				echo('<div class="row">');
-				echo('<span class="cell">'.$row['Testua'].'</span>');
-				if (strcmp($row['Zailtasuna'],'NULL')==0) {
-					echo('<span class="cell">NULL</span>');
-				}else{
-					echo('<span class="cell">'.$row['Zailtasuna'].'</span>');
+				while( $row=mysqli_fetch_array($ema, MYSQLI_ASSOC)) {
+					echo('<div class="row">');
+					echo('<span class="cell">'.$row['Testua'].'</span>');
+					if (strcmp($row['Zailtasuna'],'NULL')==0) {
+						echo('<span class="cell">NULL</span>');
+					}else{
+						echo('<span class="cell">'.$row['Zailtasuna'].'</span>');
+					}
+					echo('</div>');
 				}
 				echo('</div>');
-			}
-			echo('</div>');
-			mysqli_free_result($ema);
-			mysqli_close($esteka);
-			?>
+				mysqli_free_result($ema);
+				mysqli_close($esteka);
+				?>
+			</div>
 		</div>
 	</body>
 </html>
