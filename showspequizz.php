@@ -43,7 +43,7 @@
 	if (strcmp($email, 'web000@ehu.es')==0) {
 		echo '<p>Erantzuna: '.$row['Erantzuna'].'</p>';
 		echo "<br>";
-		echo "<input type="."button"." class="."input"." value=".'Editatu'." onclick=".'editatugaldera('.$row['Zenbakia'].')"/>';
+		echo "<input type="."button"." class="."input"." value=".'Editatu'." onclick=".'editatugaldera('.$row['Zenbakia'].')>';
 		echo "<br>";
 		echo "<br>";
 	}

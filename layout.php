@@ -1,6 +1,10 @@
 ﻿<?php
     session_start();
     if (isset($_SESSION['email'])) {
+    	if (strcmp($_SESSION['email'], 'web000@ehu.es')==0) {
+    		header('Location: reviewingQuizes.php');
+        	exit();
+    	}
         header('Location: handlingQuizes.php');
         exit();
     }

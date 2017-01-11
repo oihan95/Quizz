@@ -196,6 +196,6 @@ function editatugaldera(id){
 			document.getElementById("laukia").innerHTML= xhttp.responseText;
 		}
 	};
-	xhttp.open("GET","editquizz.php?pass="+id, true);
+	xhttp.open("GET","editquizz.php?q="+id, true);
 	xhttp.send();
 }
