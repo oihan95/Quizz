@@ -24,9 +24,10 @@
 
 		//DATUAK LORTU	
 
-		$galdera = $_GET['question'];
-		$erantzuna = $_GET['answer'];
-		$level = $_GET['level'];
+		$galdera = $_GET["question"];
+		$erantzuna = $_GET["answer"];
+		$level = $_GET["level"];
+		$email = $_SESSION['email'];
 
 		//DATUAK GORDE
 
@@ -42,12 +43,13 @@
 
 		$ema = mysqli_query($esteka,$sql);
 
-		if (!$ema){
+		if ($ema == FALSE){
 			echo('Errorea query-a gauzatzerakoan: '.msqli_error());
 			exit();
 		}else{
-			echo('<p>Galdera ongi gehitu da</p>');
+			echo'<h1>Galdera ongi gehitu da</h1>';
 		}
+		
 
 		//XML atala
 

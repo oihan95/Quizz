@@ -54,7 +54,7 @@
             <div class="megabox">
                 <p><input type="button" class="input" value="Ikusi galderak" onclick="ikusiGalderaGuztiak()"/>
                 <input type="button" class="input" value="Ikusi erabiltzaileak" onclick="ikusiIkasleak()"/>
-                <input type="button" class="input" value="Ikusi XMLko galderak" onclick="ikusixmlgalderak()"/></p>
+                <input type="button" class="input" value="Ikusi XML fitxategiko galderak" onclick="ikusixmlgalderak()"/></p>
                 <p><input type="button" class="input" value="Gehitu galdera bat" onclick="gehituformularioa()"/>
                 <input type="button" class="input" value="Ikusi XMLko galderak transformatuta" onclick="ikusixslgalderak()"/></p></p>
                 <br>

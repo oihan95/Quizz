@@ -43,10 +43,10 @@ function ikusigaldera(id){
 }
 
 function gehitugaldera(){
-	var xhttp5 = new XMLHttpRequest();
-	xhttp5.onreadystatechange = function(){
-		if ((xhttp5.readyState==4)&&(xhttp5.status==200 )){
-			document.getElementById("laukia").innerHTML= xhttp5.responseText;
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("laukia").innerHTML= xhttp.responseText;
 		}
 	};
 	var erregistro = document.getElementById('insertquestion');
@@ -56,8 +56,8 @@ function gehitugaldera(){
 
 	var param = "question="+galdera+"&answer="+erantzun+"&level="+level;
 
-	xhttp5.open("GET","InsertQuestion.php?"+param, true);
-	xhttp5.send();
+	xhttp.open("GET","InsertQuestion.php?"+param, true);
+	xhttp.send();
 }
 
 function galderakkontatu(){

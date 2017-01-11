@@ -38,12 +38,8 @@ if(filter_var($_POST['mail'], FILTER_VALIDATE_REGEXP, array("options"=>array("re
 		die('Errorea query-a gauzatzerakoan: '.msqli_error());
 	}
 
-	echo "erregistro berri bat gauzatu da";
-	echo "<p> <a href='ShowUsersWithImage.php'> Erregistroak ikusi </a>";
+	header('Location: correct.html');
 
 	mysqli_close($esteka);
 }
-
-
-
 ?>
