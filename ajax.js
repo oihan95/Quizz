@@ -46,7 +46,7 @@ function gehitugaldera(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
-			document.getElementById("laukia").innerHTML= xhttp.responseText;
+			document.getElementById("error").innerHTML= xhttp.responseText;
 		}
 	};
 	var erregistro = document.getElementById('insertquestion');
@@ -307,7 +307,7 @@ function gordealdaketa(id){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
-			document.getElementById("laukia").innerHTML= xhttp.responseText;
+			document.getElementById("error").innerHTML= xhttp.responseText;
 		}
 	};
 

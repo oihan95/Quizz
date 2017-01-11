@@ -10,18 +10,8 @@
 	$nEKI = $rowEki['ekintzan'];
 	$nEKI++;
 
-	$data = date('Y-m-d H:i:s', time());
-	$ipaddress = '';
 	$konex=$_SESSION['Konexioa'];
 	$email=$_SESSION['email'];
-
-	$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera aldatu','$data','$ipaddress' )";
-
-	$emaitzaEkintza = mysqli_query($esteka,$ekintza);
-
-	if (!$emaitzaEkintza){ 
-		die('Errorea query-a gauzatzerakoan: ' .mysqli_error($link));
-	}
 
 	$galdera = "SELECT * FROM Galderak WHERE Zenbakia = '$id'";
 
@@ -40,8 +30,11 @@
 	echo('<p><textarea class="textarea" cols="40" rows="5" id="erantzuna" name="answer">'.$row['Erantzuna'].'</textarea></p>');
 	echo('<p>Zailtasun-maila:</p>');
 	echo('<p><input class="input" type="text" value="'.$row['Zailtasuna'].'" name="level" id="maila" value=""/></p>');
-	echo('<p><input type="submit" value="Gorde aldaketak" onclick="gordealdaketa('.$id.')"/></p>');
+	echo('<p><input type="button" value="Gorde aldaketak" onclick="gordealdaketa('.$id.')"/></p>');
 	echo('</form>');
+	echo('<br>');
+	echo('<div class="errorBox backgroundred" id="error">');
+	echo('</div>');
 	echo('<br>');
 
 	mysqli_close($esteka);

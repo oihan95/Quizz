@@ -12,7 +12,7 @@
         <title>Quizzes - Maneiatu galderak</title>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type="text/javascript" src="ajax.js"></script>
-        <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+        <link rel='stylesheet' type='text/css' href='stylesPWS/style.css'>
         <link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
         <link rel="stylesheet" type="text/css" href="stylesPWS/colours.css">
         <link rel="stylesheet" type="text/css" href="stylesPWS/shapes.css">
