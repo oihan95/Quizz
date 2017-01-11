@@ -31,10 +31,12 @@ if (!($ema -> num_rows == 0)) {
 		session_start(); 
 		$_SESSION['email']=$_POST['mail'];
 		$_SESSION['Konexioa']=$zenbaki;
-		header('Location: handlingQuizes.php');
+		if (strcmp($_POST['mail'], 'web000@ehu.es')==0) {
+			header('Location: reviewingQuizes.php');
+		}else{
+			header('Location: handlingQuizes.php');
+		}	
 	}
-
-	
 }else{
 	mysqli_close($esteka);
 	?>

@@ -1,14 +1,9 @@
 <?php
-	session_start();
-    if (!isset($_SESSION['email'])) {
-        header('Location: error.html');
-        exit();
-    }
 
 //$esteka = mysqli_connect("mysql.hostinger.es", "u421176028_root", "123456",  "mysql_select_db");
 $esteka = mysqli_connect("localhost", "root",  "", "Quiz");
 
-if(filter_var($_POST[mail], FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@ikasle.ehu.[eus|es]/")))== FALSE)
+if(filter_var($_POST['mail'], FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@ikasle.ehu.[eus|es]/")))== FALSE)
 {
 	echo("$_POST[mail] ez da email egokia. ");
 }else{

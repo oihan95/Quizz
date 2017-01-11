@@ -59,9 +59,20 @@ function balidatu(erregistro){
 		alert("Pasahitza ezin da hutsik egon");
 		return false;
 	}else{
-		if (pass.length < 6) {
-		alert("Pasahitzak gutxienez 6 karaktere izan behar ditu");
-		return false;
+		var pass2 = erregistro.pasahitza2.value;
+		if (pass2 == null || pass2 == "") {
+			alert("Kaxa hau ezin da hutsik egon");
+			return false;
+		}else{
+			if (pass==pass2) {
+				if (pass.length < 6) {
+					alert("Pasahitzak gutxienez 6 karaktere izan behar ditu");
+					return false;
+				}
+			}else{
+				alert("Pasahitzak ez dira berdinak");
+				return false;
+			}
 		}
 	}
 

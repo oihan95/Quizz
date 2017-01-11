@@ -30,9 +30,22 @@
 	$row=mysqli_fetch_array($galderaemaitza, MYSQLI_ASSOC);
 
 	echo "<br>";
+	if (strcmp($email, 'web000@ehu.es')==0) {
+		echo '<p>Egilearen eposta: '.$row['Eposta'].'</p>';
+		echo "<br>";
+		//echo '<p>Gaia: '.$row['Gaia'].'</p>'; xml fitxategiko galderarako
+		//echo "<br>";
+	}
 	echo '<p>Zailtasuna: '.$row['Zailtasuna'].'</p>';
 	echo '<br>';
 	echo ('<p>Testua: '.$row['Testua'].'</p>');
 	echo "<br>";
+	if (strcmp($email, 'web000@ehu.es')==0) {
+		echo '<p>Erantzuna: '.$row['Erantzuna'].'</p>';
+		echo "<br>";
+		echo "<input type="."button"." class="."input"." value=".'Editatu'." onclick=".'editatugaldera('.$row['Zenbakia'].')"/>';
+		echo "<br>";
+		echo "<br>";
+	}
 	mysqli_close($esteka);
 ?>
