@@ -267,6 +267,28 @@ function pasahitzahaztua(){
 	xhttp.send();
 }
 
+function aldatupass(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("laukia").innerHTML= xhttp.responseText;
+		}
+	};
+	var r = document.getElementById('passform');
+	var pass = r.pass.value;
+	var pass2 = r.pass2.value;
+	if (pass == null || pass == "") {
+		alert("Pasahitza ezin da hutsik egon");
+	}else{
+		if (pass!=pass2) {
+			alert("Pasahitzak ez dira berdinak");
+		}else{
+			xhttp.open("GET","aldatupass.php?p="+pass, true);
+			xhttp.send();
+		}
+	}
+}
+
 function bidalimail(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
