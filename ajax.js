@@ -302,3 +302,22 @@ function bidalimail(){
 	xhttp.open("GET","bidalimail.php?p="+posta, true);
 	xhttp.send();
 }
+
+function gordealdaketa(id){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("laukia").innerHTML= xhttp.responseText;
+		}
+	};
+
+	var r = document.getElementById('editquestion');
+	var q = r.galdera.value;
+	var a = r.erantzuna.value;
+	var l = r.maila.value;
+
+	var param = "q="+q+"&a="+a+"&id="+id+"&l="+l;
+
+	xhttp.open("GET","updatequizz.php?"+param, true);
+	xhttp.send();
+}

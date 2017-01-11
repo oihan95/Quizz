@@ -12,8 +12,14 @@
 
 	$data = date('Y-m-d H:i:s', time());
 	$ipaddress = '';
-	$konex=$_SESSION['Konexioa'];
-	$email=$_SESSION['email'];
+
+	if (isset($_SESSION['email'])) {
+		$konex=$_SESSION['Konexioa'];
+		$email=$_SESSION['email'];
+	}else{
+		$konex = 'NULL';
+		$email = 'NULL';
+	}
 
 	$ekintza = "INSERT INTO Ekintzak VALUES ('$nEKI','$konex','$email','Galdera ikusi','$data','$ipaddress' )";
 
