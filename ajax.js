@@ -244,3 +244,14 @@ function ikusixmlgalderak(){
 	xhttp.open("GET","seeXMLQuestions.php", true);
 	xhttp.send();
 }
+
+function ikusixslgalderak(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("laukia").innerHTML= xhttp.responseText;
+		}
+	};
+	xhttp.open("GET","transformatugalderak.php", true);
+	xhttp.send();
+}
