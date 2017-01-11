@@ -56,6 +56,8 @@ if ((strcmp($post, '')==0)||strcmp($post, ' ')==0) {
 		echo "<br>";
 		echo "<p>Pasahitza ez da zuzena, mesedez sartu berriro</p>";
 		echo "<br>";
+		echo '<p><input type="button" class="input" value="Pasahitza ahaztu dut" onclick="pasahitzahaztua()"></input></p>';
+		echo "<br>";
 	}
 }
 ?>

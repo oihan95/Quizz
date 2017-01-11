@@ -255,3 +255,28 @@ function ikusixslgalderak(){
 	xhttp.open("GET","transformatugalderak.php", true);
 	xhttp.send();
 }
+
+function pasahitzahaztua(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("login").innerHTML= xhttp.responseText;
+		}
+	};
+	xhttp.open("GET","addemailform.php", true);
+	xhttp.send();
+}
+
+function bidalimail(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("login").innerHTML= xhttp.responseText;
+		}
+	};
+	var r = document.getElementById('mailform');
+	var posta = r.mail.value;
+
+	xhttp.open("GET","bidalimail.php?p="+posta, true);
+	xhttp.send();
+}
