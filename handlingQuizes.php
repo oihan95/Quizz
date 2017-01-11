@@ -48,8 +48,7 @@
             </div>
             <br>
             <div class="megabox">
-                <p><input type="button" class="input" value="Editatu galdera" onclick="ikusieditatzekogalderak()"/>
-                <input type="button" class="input" value="Ikusi galderak" onclick="ikusiGalderak()"/>
+                <p><input type="button" class="input" value="Ikusi galderak" onclick="ikusiGalderak()"/>
                 <input type="button" class="input" value="Gehitu galdera bat" onclick="gehituformularioa()"/></p>
                 <br>
             </div>
