@@ -21,7 +21,9 @@ if ((strcmp($post, '')==0)||strcmp($post, ' ')==0) {
 		exit;
 	}
 
-	$sql = "SELECT * FROM Erabiltzaile WHERE Eposta = '$post' AND  Pasahitza = '$pass'";
+	$pasahitza = sha1($pass);
+
+	$sql = "SELECT * FROM Erabiltzaile WHERE Eposta = '$post' AND  Pasahitza = '$pasahitza'";
 
 	$ema = mysqli_query($esteka,$sql);
 

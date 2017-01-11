@@ -18,12 +18,14 @@ if(filter_var($_POST['mail'], FILTER_VALIDATE_REGEXP, array("options"=>array("re
 		exit;
 	}
 
+	$pass = sha1($_POST['pass']);
+
 	$sql = "INSERT INTO Erabiltzaile VALUES
 		('$_POST[name]',
 		'$_POST[abi1]',
 		'$_POST[abi2]',
 		'$_POST[mail]',
-		'$_POST[pass]',
+		'$pass',
 		'$_POST[telf]',
 		'$_POST[spe]',
 		'$_POST[specialityOther]',
