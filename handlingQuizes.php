@@ -24,7 +24,8 @@
             <div id="logo">Quiz: crazy questions</div>
                 <div class="navbar">
                     <a href="layout.php">Home</a>
-                    <a href="credits.html">Credits</a>
+                    <a href="quizzes.php">Quizzes</a>
+                    <a href="credits.php">Credits</a>
                     <a href="logout.php">Log out</a>
                 </div>
         </div>

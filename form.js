@@ -98,23 +98,6 @@ function bistaratu(elem){
 	}
 }
 
-function balidatulogin(){
-	var log = document.getElementById("login");
-
-	var posta = log.posta.value;
-	if (posta == null || posta == "") {
-		alert("Eposta ezin da hutsik egon");
-		return false;
-	}
-
-	var pass = log.pasahitza.value;
-	if (pass == null || pass == "") {
-		alert("Pasahitza ezin da hutsik egon");
-		return false;
-	}
-	return true;
-}
-
 function osatu(){
 	var dago=false;
 	var xmlDoc = document.getElementById('datuak').contentDocument;

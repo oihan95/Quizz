@@ -25,7 +25,7 @@
 					<a href='quizzes.php'>Quizzes</a>
 					<a href="signup.html">Sign Up</a>
 					<a href="signin.html">Sign In</a>
-					<a href="credits.html">Credits</a>
+					<a href="credits.php">Credits</a>
 				</div>
 		</div>
 		<div class="wrapper jump center">

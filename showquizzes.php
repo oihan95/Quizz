@@ -31,5 +31,5 @@
 	mysqli_free_result($ema);
 	mysqli_close($esteka);
 
-	//XML fitxategiko galderak ere sartu
+	//XML fitxategiko galderak ere ikusi
 ?>

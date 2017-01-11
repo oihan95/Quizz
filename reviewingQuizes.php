@@ -15,6 +15,7 @@
         <title>Quizzes - Maneiatu galderak</title>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type="text/javascript" src="ajax.js"></script>
+        <script type="text/javascript" src="form.js"></script>
         <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
         <link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
         <link rel="stylesheet" type="text/css" href="stylesPWS/colours.css">
@@ -27,7 +28,8 @@
             <div id="logo">Quiz: crazy questions</div>
                 <div class="navbar">
                     <a href="layout.php">Home</a>
-                    <a href="credits.html">Credits</a>
+                    <a href="quizzes.php">Quizzes</a>
+                    <a href="credits.php">Credits</a>
                     <a href="logout.php">Log out</a>
                 </div>
         </div>
@@ -51,6 +53,7 @@
             <br>
             <div class="megabox">
                 <p><input type="button" class="input" value="Ikusi galderak" onclick="ikusiGalderaGuztiak()"/>
+                <input type="button" class="input" value="Ikusi erabiltzaileak" onclick="ikusiIkasleak()"/>
                 <input type="button" class="input" value="Gehitu galdera bat" onclick="gehituformularioa()"/></p>
                 <br>
             </div>

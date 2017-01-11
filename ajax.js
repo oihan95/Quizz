@@ -199,3 +199,37 @@ function editatugaldera(id){
 	xhttp.open("GET","editquizz.php?q="+id, true);
 	xhttp.send();
 }
+
+function balidatulogin(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			if ((xhttp.responseText.localeCompare('reviewingQuizes.php'))==0) {
+				window.location.href="reviewingQuizes.php";
+			}else if((xhttp.responseText.localeCompare('handlingQuizes.php'))==0){
+				window.location.href="handlingQuizes.php";
+			}else{
+				document.getElementById("laukia").innerHTML= xhttp.responseText;
+			}
+			
+		}
+	};
+	var r = document.getElementById('login');
+	var posta = r.posta.value;
+	var pasahitza = r.pasahitza.value;
+	var param = posta+"&p="+pasahitza;
+
+	xhttp.open("GET","signin.php?e="+param, true);
+	xhttp.send();
+}
+
+function ikusiIkasleak(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("laukia").innerHTML= xhttp.responseText;
+		}
+	};
+	xhttp.open("GET","addgetuserform.php", true);
+	xhttp.send();
+}

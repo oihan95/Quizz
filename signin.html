@@ -5,7 +5,9 @@
 		<title>Quizzes - Sign In</title>
     	<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
     	<link rel="stylesheet" type="text/css" href="stylesPWS/form.css">
-    	<script type="text/javascript" src="form.js"></script>
+    	<script type="text/javascript" src="ajax.js"></script>
+    	<link rel="stylesheet" type="text/css" href="stylesPWS/shapes.css">
+    	<link rel="stylesheet" type="text/css" href="stylesPWS/colours.css">
   	</head>
   	<body>
 	  	<div class = "header">
@@ -13,18 +15,21 @@
 				<div class="navbar">
 					<a href="layout.php">Home</a>
 					<a href='quizzes.php'>Quizzes</a>
-					<a href="signup.html">Sign Up</a>
+        			<a href="signup.html">Sign Up</a>
 					<a href="signin.html">Sign In</a>
-					<a href="credits.html">Credits</a>
+					<a href="credits.php">Credits</a>
 				</div>
 		</div>
 		<div class="wrapper jump center">
-			<form enctype="multipart/form-data" name = "login" id="login" onsubmit="return balidatulogin()" action="signin.php" method="post" class="elegant-aero">
+			<form enctype="multipart/form-data" name = "login" id="login" action="" method="post" class="elegant-aero">
 				<p>Eposta:</p>
 				<p><input class="input" type="text" name="mail" id="posta" value=""/></p>
 				<p>Pasahitza:</p>
 				<p><input class="input" type="password" name="pass" id="pasahitza" value=""/></p>
-				<p><button class="button" type="submit">Bidali</button></p>
+				<p><input type="button" class="input" value="Sartu" onclick="balidatulogin()"></input></p>
+				<br>
+				<div class="errorBox backgroundred" id="laukia">
+				</div>
 			</form>
 		</div>
 	</body>

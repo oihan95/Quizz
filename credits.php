@@ -24,9 +24,19 @@
 				<div class="navbar">
 					<a href="layout.php">Home</a>
 					<a href='quizzes.php'>Quizzes</a>
-					<a href="signup.html">Sign Up</a>
-					<a href="signin.html">Sign In</a>
-					<a href="credits.html">Credits</a>
+					<?php
+						session_start();
+						if (!isset($_SESSION['email'])) {
+        					echo "<a href=".'signup.html'.">Sign Up</a>";
+							echo "<a href=".'signin.html'.">Sign In</a>";
+    					}
+					?>
+					<a href="credits.php">Credits</a>
+					<?php
+						if (isset($_SESSION['email'])) {
+							echo "<a href=".'logout.php'.">Log out</a>";
+    					}
+					?>
 				</div>
 		</div>
 		<div class="wrapper jump" id="user">
