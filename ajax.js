@@ -97,4 +97,15 @@ function aztertupasahitza(pass){
 	};
 	xhttp.open("GET","egiaztatuPasahitza.php?pass="+pass, true);
 	xhttp.send();	
-}	
+}
+
+function showuser(){
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("user").innerHTML= xhttp.responseText;
+		}
+	};
+	xhttp.open("GET","session.php", true);
+	xhttp.send();
+}
