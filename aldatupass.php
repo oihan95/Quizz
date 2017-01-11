@@ -12,9 +12,9 @@
     $ema = mysqli_query($esteka,$sql);
 
     $ipaddress = 'UNKNOWN';
-    $data = date('Y-m-d H:i:s', time());
+    $data = date('Y-m-d', time());
     $n = 0;
-    $sqlberria = "UPDATE Login SET Kontagailua = '$n' WHERE IP= '$ipaddress' AND Email = '$eposta' AND Eguna = '$eguna'";
+    $sqlberria = "UPDATE Login SET Kontagailua = '$n' WHERE Email = '$email' AND Eguna = '$data'";
     mysqli_query($esteka,$sqlberria);
 
     mysqli_close($link);

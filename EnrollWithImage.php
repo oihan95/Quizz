@@ -30,7 +30,8 @@ if(filter_var($_POST['mail'], FILTER_VALIDATE_REGEXP, array("options"=>array("re
 		'$_POST[spe]',
 		'$_POST[specialityOther]',
 		'$_POST[interests]',
-		'$irudi_izena')";
+		'$irudi_izena',
+		'0')";
 
 	$ema=mysqli_query($esteka,$sql);
 

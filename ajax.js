@@ -293,7 +293,7 @@ function bidalimail(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
-			document.getElementById("login").innerHTML= xhttp.responseText;
+			document.getElementById("bat").innerHTML= xhttp.responseText;
 		}
 	};
 	var r = document.getElementById('mailform');

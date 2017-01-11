@@ -42,6 +42,12 @@ if ((strcmp($post, '')==0)||strcmp($post, ' ')==0) {
 		if (!$emaitzsqlkonexioa){
 			die('Errorea query-a gauzatzerakoan: ' .mysqli_error($esteka));
 		}else{
+
+			$data = date('Y-m-d', time());
+			$zero = 0;
+			$sqlLogin = "UPDATE LoginSaiakerak SET Kontagailua = '$zero' WHERE Email = '$email' AND Eguna = '$data'";
+        	mysqli_query($esteka,$sqlLogin);
+
 			session_start(); 
 			$_SESSION['email']=$post;
 			$_SESSION['Konexioa']=$zenbaki;
@@ -52,6 +58,11 @@ if ((strcmp($post, '')==0)||strcmp($post, ' ')==0) {
 			}	
 		}
 	}else{
+
+		$data = date('Y-m-d', time());
+		$sql2="SELECT Kontagailua AS kont FROM LoginSaiakerak WHERE Email = '$email' AND Eguna = '$data'";
+		$em = mysqli_query($esteka,$sql2);
+
 		mysqli_close($esteka);
 		echo "<br>";
 		echo "<p>Pasahitza ez da zuzena, mesedez sartu berriro</p>";

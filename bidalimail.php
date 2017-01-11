@@ -17,9 +17,8 @@
 	if (!($ema -> num_rows == 0)) {
 		$mail = "Hemen aurki dezakezu esteka zure pasahitza aldatzeko: /Applications/XAMPP/xamppfiles/htdocs/Quizz/changepass.php?posta=".$post;
 		$gaia = "Pasahitz aldaketa";
-		$headers = "MIME-Version: 1.0\r\n"; 
-		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
-		$headers .= "From: Oihan Arroyo < oihan8arroyo@gmail.com >\r\n";
+ 
+		$headers = "From: Oihan Arroyo < oihan8arroyo@gmail.com >\r\n";
 
 		$bool = mail($post,$gaia,$mail,$headers);
 
@@ -31,4 +30,5 @@
 	}else{
 		echo"<p>Eposta hau ez da existitzen</p>":
 	}
+	mysqli_close($link);
 ?>
