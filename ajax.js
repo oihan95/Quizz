@@ -202,7 +202,7 @@ function pasahitzahaztua(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
-			document.getElementById("login").innerHTML= xhttp.responseText;
+			document.getElementById("log").innerHTML= xhttp.responseText;
 		}
 	};
 	xhttp.open("GET","addemailform.php", true);
@@ -238,10 +238,11 @@ function bidalimail(){
 			document.getElementById("bat").innerHTML= xhttp.responseText;
 		}
 	};
-	var r = document.getElementById('mailform');
-	var posta = r.mail.value;
 
-	xhttp.open("GET","bidalimail.php?p="+posta, true);
+	var r = document.getElementById('mailform');
+	var post = r.mail.value;
+
+	xhttp.open("GET","bidalimail.php?p="+post, true);
 	xhttp.send();
 }
 
@@ -287,6 +288,25 @@ function initMap() {
 	} else {
 		handleLocationError(false, infoWindow, map.getCenter());
 	}
+
+	var r = confirm("Zerbitzaria mapan kokatu");
+	if (r == true) {
+		var koordenadak = document.getElementById('coords').innerHTML;
+        var koords = koordenadak.split(",");
+        var lat1 = koords[0];          
+        var lon1 = koords[1];
+        var map1 = new google.maps.Map(document.getElementById('server'), {
+        	center: {lat: -34.397, lng: 150.644},
+        	zoom: 6
+        });
+        var infoWindow1 = new google.maps.InfoWindow({map: map1});
+        var myLatlng = new google.maps.LatLng(lat1,lon1)
+        infoWindow1.setPosition(myLatlng);
+        infoWindow1.setContent('Zerbitzaria hemen dago');
+        map1.setCenter(myLatlng);
+    } else {
+    	x = "You pressed Cancel!";
+    }
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -297,5 +317,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function getserverlocation(){
-	
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if ((xhttp.readyState==4)&&(xhttp.status==200 )){
+			document.getElementById("coords").innerHTML= xhttp.responseText;
+		}
+	};
+	xhttp.open("GET","servermap.php", true);
+	xhttp.send();
 }

@@ -21,8 +21,10 @@
 
     mysqli_close($link);
 
+    header('Location: layout.php');
+
     session_destroy();
 
-    header('Location: layout.php');
+    
   }
 ?>

@@ -20,7 +20,7 @@
  
 		$headers = "From: Oihan Arroyo < oihan8arroyo@gmail.com >\r\n";
 
-		$bool = mail($post,$gaia,$mail,$headers);
+		$bool = mail($post,$gaia,$mail);
 
 		if($bool){
 		    echo "<p>Mezua ongi bidali da</p>";
@@ -28,7 +28,9 @@
 		    echo "<p>Arazo bat egon da mezua bidaltzean</p>";
 		}
 	}else{
-		echo"<p>Eposta hau ez da existitzen</p>":
+		echo "<br>";
+		echo"<p>Eposta hau ez da existitzen</p>";
+		echo "<br>";
 	}
-	mysqli_close($link);
+	mysqli_close($esteka);
 ?>

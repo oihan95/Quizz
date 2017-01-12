@@ -70,6 +70,8 @@
 			<h3>Zerbitzariaren lokalizazioa</h3>
 			<div class="maps" id="server">
 			</div>
+			<div id="coords" style = "display:none;">
+			</div>
 		</div>
 	</body>
 </html>
