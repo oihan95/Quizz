@@ -69,12 +69,10 @@ function galderakkontatu(){
 	};
 	xhttp6.open("GET","countQuizzes.php", true);
 	xhttp6.send();
-
-	function refresh(){
-		galderakkontatu();
-		setInterval(galderakkontatu(),5000);
-	}
+		
 }
+
+setInterval(galderakkontatu,5000);
 
 function aztertuposta(eposta){
 	xhttp = new XMLHttpRequest();
@@ -108,62 +106,6 @@ function showuser(){
 	};
 	xhttp.open("GET","session.php", true);
 	xhttp.send();
-}
-
-function getlocation(){
-	init_map();
-}
-
-function initMap() {
-	var map = new google.maps.Map(document.getElementById('koordenadakuser'), {
-		center: {lat: -34.397, lng: 150.644},
-		zoom: 6
-	});
-	var infoWindow = new google.maps.InfoWindow({map: map});
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			var pos = {
-				lat: position.coords.latitude,
-				lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-        }, function() {
-        	handleLocationError(true, infoWindow, map.getCenter());
-        });
-	} else {
-		handleLocationError(false, infoWindow, map.getCenter());
-	}
-
-	var r = confirm("Zerbitzaria mapan kokatu");
-    if (r == true){
-    	var koordenadak = document.getElementById('koordenadakserver').innerHTML;
-        var coords = koordenadak.split(",");
-        var lat1 = coords[0];          
-        var lon1 = coords[1];
-		var map1 = new google.maps.Map(document.getElementById('map'), {
-			center: {lat: -34.397, lng: 150.644},
-			zoom: 6
-        });
-        var infoWindow1 = new google.maps.InfoWindow({map: map1});
-		
-        myLatlng = new google.maps.LatLng(lat1,lon1)
-		
-		infoWindow1.setPosition(myLatlng);
-       	infoWindow1.setContent('Location found.');
-       	map1.setCenter(myLatlng);
-    }else{
-    	x = "You pressed Cancel!";
-    }
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
 }
 
 function aztertuticketa(zenb){
@@ -320,4 +262,40 @@ function gordealdaketa(id){
 
 	xhttp.open("GET","updatequizz.php?"+param, true);
 	xhttp.send();
+}
+
+function initMap() {
+	var map = new google.maps.Map(document.getElementById('erab'), {
+		center: {lat: -34.397, lng: 150.644},
+		zoom: 6
+	});
+	var infoWindow = new google.maps.InfoWindow({map: map});
+
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			var pos = {
+				lat: position.coords.latitude,
+				lng: position.coords.longitude
+			};
+
+			infoWindow.setPosition(pos);
+			infoWindow.setContent('Zu hemen zaude');
+			map.setCenter(pos);
+		}, function() {
+			handleLocationError(true, infoWindow, map.getCenter());
+		});
+	} else {
+		handleLocationError(false, infoWindow, map.getCenter());
+	}
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
+
+function getserverlocation(){
+	
 }

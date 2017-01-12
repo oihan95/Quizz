@@ -7,18 +7,13 @@
     	<link rel="stylesheet" type="text/css" href="stylesPWS/animate.css">
     	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type="text/javascript" src="ajax.js"></script>
-        <script async defer
-        src="">
-        	
-        </script>
-
         <link rel="stylesheet" type="text/css" href="stylesPWS/colours.css">
         <link rel="stylesheet" type="text/css" href="stylesPWS/shapes.css">
+        <script async defer
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuYE4Jcu8yB1hobOMIVZ8rV-LOB8NwW68&callback=initMap">
+    	</script>
   	</head>
-  	<body onload="showuser(); getlocation()">
-  	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuYE4Jcu8yB1hobOMIVZ8rV-LOB8NwW68&callback=initMap"
-        async defer>
-    </script>
+  	<body onload="showuser(); getserverlocation()">
 	  	<div class = "header">
 			<div id="logo">Quiz: crazy questions</div>
 				<div class="navbar">
@@ -64,16 +59,16 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<br>
+		<div class="wrapper center">
+			<h3>Zure lokalizazioa</h3>
 			<br>
-			<h4>Zure lokalizazioa</h4>
-			<br>
-			<div id="koordenadakuser" class="megabox">
-			<br>
+			<div class="maps" id="erab">
 			</div>
 			<br>
-			<h4>Zerbitzariaren lokalizazioa</h4>
-			<br>
-			<div id="koordenadakserver" class="megabox">
+			<h3>Zerbitzariaren lokalizazioa</h3>
+			<div class="maps" id="server">
 			</div>
 		</div>
 	</body>
